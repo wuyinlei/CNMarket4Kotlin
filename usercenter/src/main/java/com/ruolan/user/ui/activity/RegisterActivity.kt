@@ -2,8 +2,8 @@ package com.ruolan.user.ui.activity
 
 import android.os.Bundle
 import android.view.View
-import com.kotlin.base.ext.enable
-import com.kotlin.base.ext.onClick
+import ruolan.com.baselibrary.ext.enable
+import ruolan.com.baselibrary.ext.onClick
 import com.ruolan.user.R
 import com.ruolan.user.presenter.RegisterPresenter
 import com.ruolan.user.presenter.view.RegisterView
