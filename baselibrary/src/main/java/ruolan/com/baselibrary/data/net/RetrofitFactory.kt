@@ -6,6 +6,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import ruolan.com.baselibrary.common.Constants
 
 /**
  * Created by wuyinlei on 2018/1/20.
@@ -35,6 +36,7 @@ class RetrofitFactory private constructor() {
         }
 
         retrofit = Retrofit.Builder()
+                .baseUrl(Constants.SERVER_ADDRESS)
                 .client(initClient())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())

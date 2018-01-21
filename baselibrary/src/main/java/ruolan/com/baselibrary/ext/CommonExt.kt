@@ -3,11 +3,34 @@ package ruolan.com.baselibrary.ext
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import ruolan.com.baselibrary.data.model.BaseResp
+import ruolan.com.baselibrary.rx.BaseFuncBoolean
+import ruolan.com.baselibrary.rx.BaseSubscriber
 import ruolan.com.baselibrary.widget.DefaultTextWatcher
+import rx.Observable
+import rx.android.schedulers.AndroidSchedulers
+import rx.schedulers.Schedulers
 
 
 //Kotlin通用扩展
 
+
+/*
+    扩展Observable执行
+ */
+fun <T> Observable<T>.excute(subscriber: BaseSubscriber<T>) {
+    this.subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(subscriber)
+}
+
+
+/*
+    扩展Boolean类型数据转换
+ */
+fun <T> Observable<BaseResp<T>>.convertBoolean():Observable<Boolean>{
+    return this.flatMap(BaseFuncBoolean())
+}
 
 
 /*

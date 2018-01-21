@@ -8,7 +8,7 @@ import rx.Subscriber
  *
  * @function
  */
-class BaseSubscriber<T>(val mView:BaseView): Subscriber<T>() {
+open class BaseSubscriber<T>(val baseView:BaseView): Subscriber<T>() {
 
     override fun onNext(t: T) {
     }
