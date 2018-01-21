@@ -16,16 +16,21 @@ class RegisterPresenter @Inject constructor() : BasePresenter<RegisterView>() {
 
 
     @Inject
-    lateinit var userService :UserServiceImpl
+    lateinit var userService: UserServiceImpl
 
     fun register(mobile: String, verifyCode: String, password: String) {
+
+        if (!checkNetWork())
+            return
+
+        mView.showLoading()
 
         userService.register(mobile, password, verifyCode)
                 .excute(object : BaseSubscriber<Boolean>(mView) {
                     override fun onNext(t: Boolean) {
                         mView.onRegisterResult(t)
                     }
-                },lifecycleProvider)
+                }, lifecycleProvider)
 
 
     }

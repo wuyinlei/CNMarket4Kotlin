@@ -16,6 +16,7 @@ import javax.inject.Inject
  */
 class UserRespository @Inject constructor(){
 
+
     fun register(mobile:String,pwd:String,verifyCode:String):Observable<BaseResp<UserInfo>>{
         return RetrofitFactory.instance.create(UserApi::class.java).register(RegisterReq(mobile,pwd,verifyCode))
     }

@@ -23,11 +23,11 @@ import ruolan.com.baselibrary.ui.activity.BaseMvpActivity
 class LoginActivity: BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClickListener {
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_login)
-        initInjection()
 
         initView()
     }
@@ -59,7 +59,7 @@ class LoginActivity: BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClickL
         }
     }
 
-     fun initInjection() {
+    override fun injectComponent() {
         DaggerUserComponent.builder()
                 .activityComponent(mActivityComponent)
                 .userModule(UserModule())
@@ -68,6 +68,8 @@ class LoginActivity: BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClickL
 
         mPresenter.mView = this;
     }
+
+
 
     override fun onLoginResult(userInfo: UserInfo) {
         toast("登录成功")

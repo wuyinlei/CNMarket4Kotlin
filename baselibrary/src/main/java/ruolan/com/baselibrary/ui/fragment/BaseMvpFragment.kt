@@ -1,6 +1,10 @@
-package ruolan.com.baselibrary.ui.activity
+package ruolan.com.baselibrary.ui.fragment
 
 import android.os.Bundle
+import android.os.Message
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import org.jetbrains.anko.toast
 import ruolan.com.baselibrary.common.BaseApplication
 import ruolan.com.baselibrary.injection.component.ActivityComponent
@@ -12,43 +16,50 @@ import ruolan.com.baselibrary.presenter.view.BaseView
 import javax.inject.Inject
 
 /**
- * Created by wuyinlei on 2018/1/19.
+ * Created by wuyinlei on 2018/1/21.
  *
- * @function  mvp activity基类
- *
+ * @function
  */
-open abstract class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), BaseView {
-
-    override fun hideLoading() {
-    }
+abstract class BaseMvpFragment<T : BasePresenter<*>> :BaseFragment(), BaseView {
 
     override fun onError(message: String) {
         toast(message)
     }
 
-    override fun showLoading() {
+    override fun hideLoading() {
+
+
     }
+
+    override fun showLoading() {
+
+
+    }
+
 
     lateinit var mActivityComponent: ActivityComponent
 
     @Inject
     lateinit var mPresenter: T
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
         initActivityComponent()
 
         injectComponent()
+
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
+
 
     abstract fun injectComponent()
 
 
+
     private fun initActivityComponent() {
 
-        mActivityComponent = DaggerActivityComponent.builder().appComponent((application as BaseApplication).appComponent)
-                .activityModule(ActivityModule(this))
+        mActivityComponent = DaggerActivityComponent.builder().appComponent((activity.application as BaseApplication).appComponent)
+                .activityModule(ActivityModule(activity))
                 .lifecycleProviderModule(LifecycleProviderModule(this))
                 .build()
 

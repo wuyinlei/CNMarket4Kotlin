@@ -21,6 +21,7 @@ import ruolan.com.baselibrary.ui.activity.BaseMvpActivity
 class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView, View.OnClickListener {
 
 
+
     override fun onRegisterResult(boolean: Boolean) {
         toast("注册成功")
     }
@@ -37,16 +38,12 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView, Vie
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        initInjection()
-
         initView()
-
 
     }
 
 
-    fun initInjection() {
-
+    override fun injectComponent() {
         DaggerUserComponent.builder()
                 .activityComponent(mActivityComponent)
                 .userModule(UserModule())
@@ -56,8 +53,8 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView, Vie
         mPresenter.mView = this
     }
 
-    private fun initView() {
 
+    private fun initView() {
 
         mRegisterBtn.enable(mMobileEt, { isBtnEnable() })
         mRegisterBtn.enable(mVerifyCodeEt, { isBtnEnable() })
