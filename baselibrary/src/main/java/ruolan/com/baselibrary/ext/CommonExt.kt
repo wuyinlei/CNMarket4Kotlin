@@ -3,6 +3,7 @@ package ruolan.com.baselibrary.ext
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import com.trello.rxlifecycle.LifecycleProvider
 import ruolan.com.baselibrary.data.model.BaseResp
 import ruolan.com.baselibrary.rx.BaseFuncBoolean
 import ruolan.com.baselibrary.rx.BaseSubscriber
@@ -18,9 +19,10 @@ import rx.schedulers.Schedulers
 /*
     扩展Observable执行
  */
-fun <T> Observable<T>.excute(subscriber: BaseSubscriber<T>) {
+fun <T> Observable<T>.excute(subscriber: BaseSubscriber<T>,lifecycleProvider: LifecycleProvider<*>) {
     this.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
+            .compose(lifecycleProvider.bindToLifecycle())
             .subscribe(subscriber)
 }
 

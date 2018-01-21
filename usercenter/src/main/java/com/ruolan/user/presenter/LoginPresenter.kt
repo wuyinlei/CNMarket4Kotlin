@@ -28,7 +28,7 @@ class LoginPresenter @Inject constructor() : BasePresenter<LoginView>() {
                     override fun onNext(t: BaseResp<UserInfo>) {
                         mView.onLoginResult(t.data)
                     }
-                })
+                },lifecycleProvider)
 
     }
 }

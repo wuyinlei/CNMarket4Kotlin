@@ -3,6 +3,8 @@
           package="ruolan.com.baselibrary"
     >
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application android:allowBackup="true"
