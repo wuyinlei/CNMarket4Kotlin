@@ -1,7 +1,9 @@
 package com.ruolan.user.service.impl
 
+import com.ruolan.user.data.model.UserInfo
 import com.ruolan.user.data.repository.UserRespository
 import com.ruolan.user.service.UserService
+import ruolan.com.baselibrary.data.model.BaseResp
 import ruolan.com.baselibrary.ext.convertBoolean
 import rx.Observable
 import javax.inject.Inject
@@ -20,4 +22,11 @@ class UserServiceImpl @Inject constructor() : UserService {
 
         return respository.register(mobile, pwd, verifyCode).convertBoolean()
     }
+
+    override fun login(mobile: String, password: String, pushId: String): Observable<BaseResp<UserInfo>> {
+        return respository.login(mobile,password,pushId)
+    }
+
+
+
 }

@@ -44,6 +44,7 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView, Vie
 
     }
 
+
     fun initInjection() {
 
         DaggerUserComponent.builder()

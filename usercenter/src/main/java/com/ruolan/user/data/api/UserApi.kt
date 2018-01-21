@@ -1,6 +1,7 @@
 package com.ruolan.user.data.api
 
 import com.ruolan.user.data.model.UserInfo
+import com.ruolan.user.data.protocol.LoginReq
 import com.ruolan.user.data.protocol.RegisterReq
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -19,5 +20,9 @@ interface UserApi {
      */
     @POST("kotlinserver/user/register")
     fun register(@Body reg: RegisterReq): Observable<BaseResp<UserInfo>>
+
+    @POST("kotlinserver/user/login")
+    fun login(@Body log: LoginReq) :Observable<BaseResp<UserInfo>>
+
 
 }
