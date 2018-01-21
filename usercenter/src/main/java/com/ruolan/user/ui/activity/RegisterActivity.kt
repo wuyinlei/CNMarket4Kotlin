@@ -2,11 +2,11 @@ package com.ruolan.user.ui.activity
 
 import android.os.Bundle
 import android.view.View
-import ruolan.com.baselibrary.ext.enable
-import ruolan.com.baselibrary.ext.onClick
 import com.ruolan.user.R
 import com.ruolan.user.injection.component.DaggerUserComponent
 import com.ruolan.user.injection.module.UserModule
+import ruolan.com.baselibrary.ext.enable
+import ruolan.com.baselibrary.ext.onClick
 import com.ruolan.user.presenter.RegisterPresenter
 import com.ruolan.user.presenter.view.RegisterView
 import kotlinx.android.synthetic.main.activity_register.*
@@ -45,10 +45,12 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView, Vie
     }
 
     fun initInjection() {
-        DaggerUserComponent
-                .builder()
+
+        DaggerUserComponent.builder()
+                .activityComponent(mActivityComponent)
                 .userModule(UserModule())
-                .build().inject(this)
+                .build()
+                .inject(this)
 
         mPresenter.mView = this
     }
