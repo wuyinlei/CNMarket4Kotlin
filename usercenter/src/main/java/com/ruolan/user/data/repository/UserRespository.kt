@@ -6,13 +6,14 @@ import com.ruolan.user.data.protocol.RegisterReq
 import ruolan.com.baselibrary.data.model.BaseResp
 import ruolan.com.baselibrary.data.net.RetrofitFactory
 import rx.Observable
+import javax.inject.Inject
 
 /**
  * Created by wuyinlei on 2018/1/20.
  *
  * @function
  */
-class UserRespository {
+class UserRespository @Inject constructor(){
 
     fun register(mobile:String,pwd:String,verifyCode:String):Observable<BaseResp<UserInfo>>{
         return RetrofitFactory.instance.create(UserApi::class.java).register(RegisterReq(mobile,pwd,verifyCode))

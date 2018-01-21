@@ -5,6 +5,8 @@ import android.view.View
 import ruolan.com.baselibrary.ext.enable
 import ruolan.com.baselibrary.ext.onClick
 import com.ruolan.user.R
+import com.ruolan.user.injection.component.DaggerUserComponent
+import com.ruolan.user.injection.module.UserModule
 import com.ruolan.user.presenter.RegisterPresenter
 import com.ruolan.user.presenter.view.RegisterView
 import kotlinx.android.synthetic.main.activity_register.*
@@ -16,7 +18,7 @@ import ruolan.com.baselibrary.ui.activity.BaseMvpActivity
  *
  * @function 注册界面
  */
-class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView , View.OnClickListener{
+class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView, View.OnClickListener {
 
 
     override fun onRegisterResult(boolean: Boolean) {
@@ -24,9 +26,9 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView , Vi
     }
 
     override fun onClick(view: View) {
-        when(view.id){
+        when (view.id) {
             R.id.mRegisterBtn -> {
-                mPresenter.register(mMobileEt.text.toString(),mPwdEt.text.toString(),mVerifyCodeEt.text.toString())
+                mPresenter.register(mMobileEt.text.toString(), mVerifyCodeEt.text.toString(), mPwdEt.text.toString())
             }
         }
     }
@@ -35,19 +37,29 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView , Vi
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        initView()
+        initInjection()
 
-        mPresenter = RegisterPresenter()
-        mPresenter.mView = this
+        initView()
 
 
     }
 
+    fun initInjection() {
+        DaggerUserComponent
+                .builder()
+                .userModule(UserModule())
+                .build().inject(this)
+
+        mPresenter.mView = this
+    }
+
     private fun initView() {
-        mRegisterBtn.enable(mMobileEt,{isBtnEnable()})
-        mRegisterBtn.enable(mVerifyCodeEt,{isBtnEnable()})
-        mRegisterBtn.enable(mPwdEt,{isBtnEnable()})
-        mRegisterBtn.enable(mPwdConfirmEt,{isBtnEnable()})
+
+
+        mRegisterBtn.enable(mMobileEt, { isBtnEnable() })
+        mRegisterBtn.enable(mVerifyCodeEt, { isBtnEnable() })
+        mRegisterBtn.enable(mPwdEt, { isBtnEnable() })
+        mRegisterBtn.enable(mPwdConfirmEt, { isBtnEnable() })
 
         mVerifyCodeBtn.onClick(this)
         mRegisterBtn.onClick(this)
@@ -57,10 +69,10 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView , Vi
     /*
        判断按钮是否可用
     */
-    private fun isBtnEnable():Boolean{
+    private fun isBtnEnable(): Boolean {
         return mMobileEt.text.isNullOrEmpty().not() &&
                 mVerifyCodeEt.text.isNullOrEmpty().not() &&
-                mPwdEt.text.isNullOrEmpty().not()&&
+                mPwdEt.text.isNullOrEmpty().not() &&
                 mPwdConfirmEt.text.isNullOrEmpty().not()
     }
 

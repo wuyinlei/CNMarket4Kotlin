@@ -4,16 +4,20 @@ import com.ruolan.user.data.repository.UserRespository
 import com.ruolan.user.service.UserService
 import ruolan.com.baselibrary.ext.convertBoolean
 import rx.Observable
+import javax.inject.Inject
 
 /**
  * Created by wuyinlei on 2018/1/20.
  *
  * @function
  */
-class UserServiceImpl:UserService {
+class UserServiceImpl @Inject constructor() : UserService {
+
+    @Inject
+    lateinit var respository: UserRespository
 
     override fun register(mobile: String, pwd: String, verifyCode: String): Observable<Boolean> {
-        val respository = UserRespository()
-        return respository.register(mobile,pwd,verifyCode).convertBoolean()
+
+        return respository.register(mobile, pwd, verifyCode).convertBoolean()
     }
 }
