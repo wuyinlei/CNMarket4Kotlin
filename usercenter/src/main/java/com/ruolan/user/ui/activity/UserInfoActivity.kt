@@ -12,6 +12,7 @@ import com.jph.takephoto.app.TakePhoto
 import com.jph.takephoto.app.TakePhotoImpl
 import com.jph.takephoto.compress.CompressConfig
 import com.jph.takephoto.model.TResult
+import com.qiniu.android.storage.UploadManager
 import com.ruolan.user.R
 import com.ruolan.user.data.model.UserInfo
 import com.ruolan.user.injection.component.DaggerUserComponent
@@ -36,6 +37,7 @@ import java.io.File
  */
 class UserInfoActivity : BaseMvpActivity<UserInofPresenter>(), UserInfoView, TakePhoto.TakeResultListener {
 
+    private val mUploadManager: UploadManager by lazy { UploadManager() }
 
     private var mLocalFileUrl: String? = null
     private var mRemoteFileUrl: String? = null
@@ -130,6 +132,12 @@ class UserInfoActivity : BaseMvpActivity<UserInofPresenter>(), UserInfoView, Tak
 
     override fun onGetUploadTokenResult(result: String) {
         Log.d("token",result)
+        mUploadManager.put(mLocalFileUrl,null,result, { key, info, response ->
+            mRemoteFileUrl = Constants.IMAGE_SERVER_ADDRESS + response?.get("hash")
+            Log.d("test", mRemoteFileUrl)
+            GlideUtils.loadUrlImage(this@UserInfoActivity, mRemoteFileUrl!!,mUserIconIv)
+        },null)
+
     }
 
     override fun onEditUserResult(result: UserInfo) {
