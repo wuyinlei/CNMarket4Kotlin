@@ -5,10 +5,10 @@ package ruolan.com.baselibrary.presenter.view
  */
 interface BaseView {
 
-    fun showLoading();
+    fun showLoading()
 
-    fun hideLoading();
+    fun hideLoading()
 
-    fun onError();
+    fun onError(message:String)
 
 }
