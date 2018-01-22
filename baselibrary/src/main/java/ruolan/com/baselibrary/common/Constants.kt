@@ -2,12 +2,18 @@ package ruolan.com.baselibrary.common
 
 /**
  * Created by wuyinlei on 2018/1/20.
+ *
+ * @function
  */
 open class Constants {
 
     companion object {
+
+        //七牛服务地址
+        const val IMAGE_SERVER_ADDRESS = "http://ozejm5ujq.bkt.clouddn.com/"
+
         //本地服务器地址
-        const val SERVER_ADDRESS = "http://192.168.1.9:8080/"
+        const val SERVER_ADDRESS = "http://192.168.1.8:8080/"
         //SP表名
         const val TABLE_PREFS = "Kotlin_mall"
         //Token Key
