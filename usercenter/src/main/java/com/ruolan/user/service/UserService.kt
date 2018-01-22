@@ -17,4 +17,12 @@ interface UserService {
     //用户注册
     fun login(mobile:String,password:String,pushId:String): Observable<BaseResp<UserInfo>>
 
+    //用户更改信息
+    fun modifyInfo(userIcon:String,userName:String,userGender:String,userSign:String):Observable<BaseResp<UserInfo>>
+
+    //忘记密码  验证
+    fun forgetPwd(mobile:String,verifyCode:String):Observable<Boolean>
+
+    //重置密码
+    fun resetPwd(mobile:String,pwd:String):Observable<Boolean>
 }
