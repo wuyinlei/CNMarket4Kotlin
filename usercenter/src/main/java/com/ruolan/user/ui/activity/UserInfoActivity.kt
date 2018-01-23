@@ -12,7 +12,10 @@ import com.jph.takephoto.app.TakePhoto
 import com.jph.takephoto.app.TakePhotoImpl
 import com.jph.takephoto.compress.CompressConfig
 import com.jph.takephoto.model.TResult
+import com.qiniu.android.http.ResponseInfo
+import com.qiniu.android.storage.UpCompletionHandler
 import com.qiniu.android.storage.UploadManager
+import com.qiniu.android.storage.UploadOptions
 import com.ruolan.user.R
 import com.ruolan.user.data.model.UserInfo
 import com.ruolan.user.injection.component.DaggerUserComponent
@@ -22,6 +25,7 @@ import com.ruolan.user.presenter.view.UserInfoView
 import com.ruolan.user.utils.UserPrefsUtils
 import kotlinx.android.synthetic.main.activity_user_info.*
 import org.jetbrains.anko.toast
+import org.json.JSONObject
 import ruolan.com.baselibrary.common.Constants
 import ruolan.com.baselibrary.ext.onClick
 import ruolan.com.baselibrary.ui.activity.BaseMvpActivity
@@ -130,8 +134,10 @@ class UserInfoActivity : BaseMvpActivity<UserInofPresenter>(), UserInfoView, Tak
 
     }
 
+
     override fun onGetUploadTokenResult(result: String) {
         Log.d("token",result)
+
         mUploadManager.put(mLocalFileUrl,null,result, { key, info, response ->
             mRemoteFileUrl = Constants.IMAGE_SERVER_ADDRESS + response?.get("hash")
             Log.d("test", mRemoteFileUrl)
@@ -144,7 +150,9 @@ class UserInfoActivity : BaseMvpActivity<UserInofPresenter>(), UserInfoView, Tak
 
         toast("修改成功")
         UserPrefsUtils.putUserInfo(result)
-        initData()
+//        initData()
+
+//        TODO()到主界面就行
 
     }
 

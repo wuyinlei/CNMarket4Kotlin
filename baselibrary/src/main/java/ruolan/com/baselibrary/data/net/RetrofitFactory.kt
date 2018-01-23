@@ -7,6 +7,7 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import ruolan.com.baselibrary.common.Constants
+import ruolan.com.baselibrary.utils.AppPrefsUtils
 
 /**
  * Created by wuyinlei on 2018/1/20.
@@ -31,6 +32,7 @@ class RetrofitFactory private constructor() {
                     .newBuilder()
                     .addHeader("Content_Type", "application/json")
                     .addHeader("charset", "UTF-8")
+                    .addHeader("token",AppPrefsUtils.getString(Constants.KEY_SP_TOKEN))
                     .build()
             chain.proceed(request)
         }

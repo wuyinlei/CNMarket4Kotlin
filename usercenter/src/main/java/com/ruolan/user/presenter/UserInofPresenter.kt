@@ -1,8 +1,11 @@
 package com.ruolan.user.presenter
 
+import com.ruolan.user.data.model.UserInfo
 import com.ruolan.user.presenter.view.UserInfoView
 import com.ruolan.user.service.impl.UploadServiceImpl
 import com.ruolan.user.service.impl.UserServiceImpl
+import retrofit2.Response
+import ruolan.com.baselibrary.data.model.BaseResp
 import ruolan.com.baselibrary.ext.excute
 import ruolan.com.baselibrary.presenter.BasePresenter
 import ruolan.com.baselibrary.rx.BaseSubscriber
@@ -47,6 +50,13 @@ class UserInofPresenter @Inject constructor() : BasePresenter<UserInfoView>() {
             return
 
         mView.showLoading()
+
+        userService.modifyInfo(userIcon,userName,userGender,userSign)
+                .excute(object :BaseSubscriber<BaseResp<UserInfo>>(mView){
+                    override fun onNext(t: BaseResp<UserInfo>) {
+                        mView.onEditUserResult(t.data)
+                    }
+                },lifecycleProvider)
 
 
     }

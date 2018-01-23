@@ -18,5 +18,6 @@ data class UserInfo(
     val userBirthday: String,
     val userAddress: String,
     val userSign: String,
-    val pushId: String
+    val pushId: String,
+    val token:String
 )
