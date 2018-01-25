@@ -135,6 +135,9 @@ class UserInfoActivity : BaseMvpActivity<UserInofPresenter>(), UserInfoView, Tak
     }
 
 
+    /**
+     * 获取图片上传token回调方法
+     */
     override fun onGetUploadTokenResult(result: String) {
         Log.d("token",result)
 
@@ -146,6 +149,9 @@ class UserInfoActivity : BaseMvpActivity<UserInofPresenter>(), UserInfoView, Tak
 
     }
 
+    /**
+     * 更改用户信息回调方法
+     */
     override fun onEditUserResult(result: UserInfo) {
 
         toast("修改成功")
@@ -172,25 +178,36 @@ class UserInfoActivity : BaseMvpActivity<UserInofPresenter>(), UserInfoView, Tak
         mTakePhoto.onActivityResult(requestCode, resultCode, data)
     }
 
+    /**
+     *  照片成功回调方法
+     */
     override fun takeSuccess(result: TResult?) {
         Log.d("TakePhoto", "压缩版本的位置  ;" + result?.image?.compressPath + "\n" + "未压缩的位置" + result?.image?.originalPath)
-
         mLocalFileUrl = result?.image?.compressPath
         mPresenter.getUploadToken()
     }
 
+    /**
+     * 拍照取消回调方法
+     */
     override fun takeCancel() {
 
         toast("取消")
     }
 
+    /**
+     * 拍照失败回调方法
+     */
     override fun takeFail(result: TResult?, msg: String?) {
         toast("失败" + msg)
     }
 
+    /**
+     * 创建临时文件
+     */
     fun createTempFile() {
         val tempFileName = "${DateUtils.curTime}.png"
-        if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
+        if (Environment.MEDIA_MOUNTED == Environment.getExternalStorageState()) {
             this.mTempFile = File(Environment.getExternalStorageDirectory(), tempFileName)
             return
         }
