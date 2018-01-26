@@ -1,11 +1,10 @@
 package ruolan.com.baselibrary.ui.fragment
 
 import android.os.Bundle
-import android.os.Message
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import org.jetbrains.anko.toast
+import org.jetbrains.anko.support.v4.toast
 import ruolan.com.baselibrary.common.BaseApplication
 import ruolan.com.baselibrary.injection.component.ActivityComponent
 import ruolan.com.baselibrary.injection.component.DaggerActivityComponent
@@ -48,7 +47,7 @@ abstract class BaseMvpFragment<T : BasePresenter<*>> :BaseFragment(), BaseView {
 
         injectComponent()
 
-        return super.onCreateView(inflater, container, savedInstanceState)
+        return super.onCreateView(inflater, container, savedInstanceState)!!
     }
 
 

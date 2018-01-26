@@ -1,14 +1,11 @@
 package ruolan.com.kotlin.ui.activity
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_main.*
+import android.support.v7.app.AppCompatActivity
 import org.jetbrains.anko.toast
 import ruolan.com.baselibrary.common.AppManager
 import ruolan.com.kotlin.R
-import rx.Observable
-import rx.android.schedulers.AndroidSchedulers
-import java.util.concurrent.TimeUnit
+import ruolan.com.kotlin.ui.fragment.HomeFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,18 +15,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        mBottomNavBar.checkCartBadge(20)
-        mBottomNavBar.checkMsgBadge(false)
+        initView()
 
-        Observable.timer(2,TimeUnit.SECONDS)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({mBottomNavBar.checkMsgBadge(true)})
+    }
 
-
-        Observable.timer(5,TimeUnit.SECONDS)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({mBottomNavBar.checkCartBadge(0)})
-
+    private fun initView() {
+        val manager = supportFragmentManager.beginTransaction()
+        manager.replace(R.id.mContaier,HomeFragment())
+        manager.commit()
 
     }
 
