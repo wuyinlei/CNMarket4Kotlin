@@ -12,10 +12,7 @@ import com.jph.takephoto.app.TakePhoto
 import com.jph.takephoto.app.TakePhotoImpl
 import com.jph.takephoto.compress.CompressConfig
 import com.jph.takephoto.model.TResult
-import com.qiniu.android.http.ResponseInfo
-import com.qiniu.android.storage.UpCompletionHandler
 import com.qiniu.android.storage.UploadManager
-import com.qiniu.android.storage.UploadOptions
 import com.ruolan.user.R
 import com.ruolan.user.data.model.UserInfo
 import com.ruolan.user.injection.component.DaggerUserComponent
@@ -25,8 +22,7 @@ import com.ruolan.user.presenter.view.UserInfoView
 import com.ruolan.user.utils.UserPrefsUtils
 import kotlinx.android.synthetic.main.activity_user_info.*
 import org.jetbrains.anko.toast
-import org.json.JSONObject
-import ruolan.com.baselibrary.common.Constants
+import ruolan.com.baselibrary.common.BaseConstants
 import ruolan.com.baselibrary.ext.onClick
 import ruolan.com.baselibrary.ui.activity.BaseMvpActivity
 import ruolan.com.baselibrary.utils.AppPrefsUtils
@@ -70,11 +66,11 @@ class UserInfoActivity : BaseMvpActivity<UserInofPresenter>(), UserInfoView, Tak
 
     private fun initData() {
 
-        mUserIcon = AppPrefsUtils.getString(Constants.KEY_SP_USER_ICON)
-        mUserName = AppPrefsUtils.getString(Constants.KEY_SP_USER_NAME)
-        mUserMobile = AppPrefsUtils.getString(Constants.KEY_SP_USER_MOBILE)
-        mUserGender = AppPrefsUtils.getString(Constants.KEY_SP_USER_GENDER)
-        mUserSign = AppPrefsUtils.getString(Constants.KEY_SP_USER_SIGN)
+        mUserIcon = AppPrefsUtils.getString(BaseConstants.KEY_SP_USER_ICON)
+        mUserName = AppPrefsUtils.getString(BaseConstants.KEY_SP_USER_NAME)
+        mUserMobile = AppPrefsUtils.getString(BaseConstants.KEY_SP_USER_MOBILE)
+        mUserGender = AppPrefsUtils.getString(BaseConstants.KEY_SP_USER_GENDER)
+        mUserSign = AppPrefsUtils.getString(BaseConstants.KEY_SP_USER_SIGN)
 
         mRemoteFileUrl = mUserIcon
         if (!TextUtils.isEmpty(mUserIcon)) {
@@ -142,7 +138,7 @@ class UserInfoActivity : BaseMvpActivity<UserInofPresenter>(), UserInfoView, Tak
         Log.d("token",result)
 
         mUploadManager.put(mLocalFileUrl,null,result, { key, info, response ->
-            mRemoteFileUrl = Constants.IMAGE_SERVER_ADDRESS + response?.get("hash")
+            mRemoteFileUrl = BaseConstants.IMAGE_SERVER_ADDRESS + response?.get("hash")
             Log.d("test", mRemoteFileUrl)
             GlideUtils.loadUrlImage(this@UserInfoActivity, mRemoteFileUrl!!,mUserIconIv)
         },null)

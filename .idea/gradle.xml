@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/baselibrary" />
             <option value="$PROJECT_DIR$/factory" />
+            <option value="$PROJECT_DIR$/messagecenter" />
             <option value="$PROJECT_DIR$/usercenter" />
           </set>
         </option>

@@ -3,11 +3,13 @@ package ruolan.com.baselibrary.ext
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import com.trello.rxlifecycle.LifecycleProvider
 import ruolan.com.baselibrary.data.model.BaseResp
 import ruolan.com.baselibrary.rx.BaseFunc
 import ruolan.com.baselibrary.rx.BaseFuncBoolean
 import ruolan.com.baselibrary.rx.BaseSubscriber
+import ruolan.com.baselibrary.utils.GlideUtils
 import ruolan.com.baselibrary.widget.DefaultTextWatcher
 import rx.Observable
 import rx.android.schedulers.AndroidSchedulers
@@ -78,4 +80,11 @@ fun View.onClick(method:() -> Unit):View {
  */
 fun View.setVisible(visible:Boolean){
     this.visibility = if (visible) View.VISIBLE else View.GONE
+}
+
+/*
+    ImageView加载网络图片
+ */
+fun ImageView.loadUrl(url: String) {
+    GlideUtils.loadUrlImage(context, url, this)
 }

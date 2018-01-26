@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/news_height"
+              android:background="@drawable/corner_news_bg"
+              android:gravity="center_vertical"
+              android:orientation="horizontal"
+              android:paddingBottom="@dimen/common_padding_small"
+              android:paddingStart="@dimen/common_padding_middle"
+              android:paddingTop="@dimen/common_padding_small">
+
+    <ImageView
+        style="@style/WrapMatch"
+        android:layout_marginEnd="@dimen/common_margin_middle"
+        android:src="@mipmap/icon_news"
+        android:contentDescription="公告"
+        tools:ignore="HardcodedText"/>
+
+    <View
+        style="@style/DividerFixedWidth"
+        android:layout_marginEnd="@dimen/common_margin_middle"/>
+
+    <ViewFlipper
+        android:id="@+id/mFlipperView"
+        style="@style/MatchWrap"
+        android:flipInterval="3000"/>
+</LinearLayout>

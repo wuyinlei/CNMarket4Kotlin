@@ -5,7 +5,7 @@ package ruolan.com.baselibrary.common
  *
  * @function
  */
-open class Constants {
+open class BaseConstants {
 
     companion object {
 
