@@ -5,6 +5,7 @@ import android.widget.Button
 import android.widget.EditText
 import com.trello.rxlifecycle.LifecycleProvider
 import ruolan.com.baselibrary.data.model.BaseResp
+import ruolan.com.baselibrary.rx.BaseFunc
 import ruolan.com.baselibrary.rx.BaseFuncBoolean
 import ruolan.com.baselibrary.rx.BaseSubscriber
 import ruolan.com.baselibrary.widget.DefaultTextWatcher
@@ -24,6 +25,15 @@ fun <T> Observable<T>.excute(subscriber: BaseSubscriber<T>,lifecycleProvider: Li
             .observeOn(AndroidSchedulers.mainThread())
             .compose(lifecycleProvider.bindToLifecycle())
             .subscribe(subscriber)
+}
+
+
+
+/*
+    扩展数据转换
+ */
+fun <T> Observable<BaseResp<T>>.convert():Observable<T>{
+    return this.flatMap(BaseFunc())
 }
 
 
