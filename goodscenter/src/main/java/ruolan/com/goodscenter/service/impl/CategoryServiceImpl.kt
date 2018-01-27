@@ -17,7 +17,7 @@ class CategoryServiceImpl @Inject constructor() : CategoryService {
     @Inject
     lateinit var respository: CategoryRespository
 
-    override fun getCategory(parentId:Int): Observable<BaseResp<List<Category>>> {
+    override fun getCategory(parentId:Int): Observable<BaseResp<MutableList<Category>>> {
         return respository.getCategory(parentId)
     }
 }

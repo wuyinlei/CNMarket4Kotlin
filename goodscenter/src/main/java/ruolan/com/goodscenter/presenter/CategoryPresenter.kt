@@ -23,8 +23,8 @@ class CategoryPresenter @Inject constructor() : BasePresenter<CategoryView>() {
     fun getCategory(parentId:Int) {
 
         categoryService.getCategory(parentId)
-                .excute(object :BaseSubscriber<BaseResp<List<Category>>>(mView){
-                    override fun onNext(t: BaseResp<List<Category>>) {
+                .excute(object :BaseSubscriber<BaseResp<MutableList<Category>>>(mView){
+                    override fun onNext(t: BaseResp<MutableList<Category>>) {
                         mView.onCategoryResult(t.data)
                     }
                 },lifecycleProvider)

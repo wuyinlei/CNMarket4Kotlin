@@ -16,7 +16,7 @@ import rx.Observable
 interface CategoryApi {
 
     @POST("kotlinserver/category/getlist")
-    fun getCategory(@Body req: GetCategoryReq): Observable<BaseResp<List<Category>>>
+    fun getCategory(@Body req: GetCategoryReq): Observable<BaseResp<MutableList<Category>>>
 
 
 }

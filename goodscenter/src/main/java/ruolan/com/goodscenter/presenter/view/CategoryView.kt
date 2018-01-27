@@ -10,6 +10,6 @@ import ruolan.com.goodscenter.data.protocol.Category
  */
 interface CategoryView : BaseView {
 
-    fun onCategoryResult(result: List<Category>)
+    fun onCategoryResult(result: MutableList<Category>)
 
 }

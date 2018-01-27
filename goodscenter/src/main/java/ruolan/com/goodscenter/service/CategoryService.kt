@@ -12,6 +12,6 @@ import rx.Observable
 interface CategoryService {
 
     //获取商品类别
-    fun getCategory(parentId: Int): Observable<BaseResp<List<Category>>>
+    fun getCategory(parentId: Int): Observable<BaseResp<MutableList<Category>>>
 
 }

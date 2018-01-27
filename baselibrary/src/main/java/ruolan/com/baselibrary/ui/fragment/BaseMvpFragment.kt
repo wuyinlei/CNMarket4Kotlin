@@ -41,13 +41,13 @@ abstract class BaseMvpFragment<T : BasePresenter<*>> :BaseFragment(), BaseView {
     @Inject
     lateinit var mPresenter: T
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         initActivityComponent()
 
         injectComponent()
 
-        return super.onCreateView(inflater, container, savedInstanceState)!!
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
 
