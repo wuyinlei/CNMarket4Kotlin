@@ -22,9 +22,9 @@
         </activity>
 
         <activity android:name=".ui.activity.GoodsActivity">
-
-
         </activity>
+
+        <activity android:name=".ui.activity.GoodsDetailActivity"/>
     </application>
 
 </manifest>
