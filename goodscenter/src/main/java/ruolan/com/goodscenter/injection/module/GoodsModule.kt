@@ -12,11 +12,11 @@ import ruolan.com.goodscenter.service.impl.CategoryServiceImpl
  */
 
 @Module
-class CategoryModule {
+class GoodsModule {
 
     @Provides
-    fun providesUserService(categoryService: CategoryServiceImpl):CategoryService{
-        return categoryService
+    fun providesUserService(goodsService: CategoryServiceImpl): CategoryService {
+        return goodsService
     }
 
 }

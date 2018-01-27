@@ -19,7 +19,7 @@ import com.ruolan.user.injection.component.DaggerUserComponent
 import com.ruolan.user.injection.module.UserModule
 import com.ruolan.user.presenter.UserInofPresenter
 import com.ruolan.user.presenter.view.UserInfoView
-import com.ruolan.user.utils.UserPrefsUtils
+import com.ruolan.user.utils.putUserInfo
 import kotlinx.android.synthetic.main.activity_user_info.*
 import org.jetbrains.anko.toast
 import ruolan.com.baselibrary.common.BaseConstants
@@ -151,7 +151,7 @@ class UserInfoActivity : BaseMvpActivity<UserInofPresenter>(), UserInfoView, Tak
     override fun onEditUserResult(result: UserInfo) {
 
         toast("修改成功")
-        UserPrefsUtils.putUserInfo(result)
+        putUserInfo(result)
 //        initData()
 
 //        TODO()到主界面就行

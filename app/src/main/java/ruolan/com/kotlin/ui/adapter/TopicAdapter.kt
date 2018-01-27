@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.layout_topic_item.view.*
-import ruolan.com.baselibrary.ext.loadUrl
 import ruolan.com.kotlin.R
 
 /**
