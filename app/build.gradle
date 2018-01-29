@@ -29,6 +29,10 @@ dependencies {
     if(isUserModule.toBoolean()) {
         compile project(':usercenter')
     }
+    if (isGoodsModule.toBoolean()){
+        compile project(':goodscenter')
+    }
+    compile project(':messagecenter')
 
 }
 repositories {

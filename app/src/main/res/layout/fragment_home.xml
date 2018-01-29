@@ -27,9 +27,9 @@
     <com.youth.banner.Banner
         android:id="@+id/mHomeBanner"
         android:layout_width="match_parent"
-        android:layout_height="150dp"/>
+        android:layout_height="180dp"/>
 
-    <ruolan.com.baselibrary.widget.NewsFlipperView
+    <ruolan.com.messagecenter.widget.NewsFlipperView
         android:id="@+id/mNewsFlipperView"
         style="@style/MatchWrap"
         android:layout_marginBottom="@dimen/common_margin_small"

@@ -32,3 +32,8 @@ const val HOME_TOPIC_THREE = "https://timgsa.baidu.com/timg?image&quality=80&siz
 const val HOME_TOPIC_FOUR = "http://img.zcool.cn/community/01796c58772f66a801219c77e4fc04.png@1280w_1l_2o_100sh.png"
 const val HOME_TOPIC_FIVE = "http://img.zcool.cn/community/0154805791ffeb0000012e7edba495.jpg@900w_1l_2o_100sh.jpg"
 
+
+//首页信息公告
+
+const val HOME_FLIPPER_ONE = "2017年年终报告出炉了,听说没有你呀,哈哈哈哈厉害了!!!"
+const val HOME_FLIPPER_TWO = "2018年过年你还好么,听说人家年终奖过万。。。哎？？"

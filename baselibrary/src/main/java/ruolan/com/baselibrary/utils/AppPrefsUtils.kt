@@ -4,13 +4,13 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.content.SharedPreferences.Editor
 import ruolan.com.baselibrary.common.BaseApplication
-import ruolan.com.baselibrary.common.Constants
+import ruolan.com.baselibrary.common.BaseConstants
 
 /*
     SP工具类
  */
 object AppPrefsUtils {
-    private var sp: SharedPreferences = BaseApplication.context.getSharedPreferences(Constants.TABLE_PREFS, Context.MODE_PRIVATE)
+    private var sp: SharedPreferences = BaseApplication.context.getSharedPreferences(BaseConstants.TABLE_PREFS, Context.MODE_PRIVATE)
     private var ed: Editor
 
     init {

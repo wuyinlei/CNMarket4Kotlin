@@ -6,7 +6,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import ruolan.com.baselibrary.common.Constants
+import ruolan.com.baselibrary.common.BaseConstants
 import ruolan.com.baselibrary.utils.AppPrefsUtils
 
 /**
@@ -32,13 +32,13 @@ class RetrofitFactory private constructor() {
                     .newBuilder()
                     .addHeader("Content_Type", "application/json")
                     .addHeader("charset", "UTF-8")
-                    .addHeader("token",AppPrefsUtils.getString(Constants.KEY_SP_TOKEN))
+                    .addHeader("token",AppPrefsUtils.getString(BaseConstants.KEY_SP_TOKEN))
                     .build()
             chain.proceed(request)
         }
 
         retrofit = Retrofit.Builder()
-                .baseUrl(Constants.SERVER_ADDRESS)
+                .baseUrl(BaseConstants.SERVER_ADDRESS)
                 .client(initClient())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())

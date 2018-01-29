@@ -5,7 +5,7 @@ package ruolan.com.baselibrary.common
  *
  * @function
  */
-open class Constants {
+open class BaseConstants {
 
     companion object {
 
@@ -13,7 +13,7 @@ open class Constants {
         const val IMAGE_SERVER_ADDRESS = "http://ozejm5ujq.bkt.clouddn.com/"
 
         //本地服务器地址
-        const val SERVER_ADDRESS = "http://192.168.1.8:8080/"
+        const val SERVER_ADDRESS = "http://192.168.1.4:8080/"
         //SP表名
         const val TABLE_PREFS = "Kotlin_mall"
         //Token Key
