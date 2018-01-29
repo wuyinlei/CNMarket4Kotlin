@@ -53,7 +53,7 @@ class LoginActivity: BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClickL
             }
 
             R.id.mLoginBtn -> {
-                mPresenter.login(mMobileEt.text.toString(),mPwdEt.text.toString(),"")
+                mPresenter.login(mMobileEt.text.toString(),mPwdEt.text.toString(),"ZTExYmZhNzUtYTRmZi00NzJkLWE3MmMtOTU0MGNkNDUzMWY5")
             }
 
         }
