@@ -15,6 +15,7 @@ import com.ruolan.factory.router.RouterPath
 class PushProviderImpl : PushProvider {
 
     private var mContext: Context? = null
+
     override fun getPushId(): String {
         return JPushInterface.getRegistrationID(mContext)
     }
