@@ -2,6 +2,7 @@ package ruolan.com.baselibrary.common
 
 import android.app.Application
 import android.content.Context
+import com.alibaba.android.arouter.launcher.ARouter
 import ruolan.com.baselibrary.injection.component.AppComponent
 import ruolan.com.baselibrary.injection.component.DaggerAppComponent
 import ruolan.com.baselibrary.injection.module.AppModule
@@ -21,6 +22,11 @@ open class BaseApplication:Application(){
         initAppInjection()
 
         context = this
+
+        //ARouter初始化
+        ARouter.openLog()    // 打印日志
+        ARouter.openDebug()
+        ARouter.init(this)
     }
 
     private fun initAppInjection() {

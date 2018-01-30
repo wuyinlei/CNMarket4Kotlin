@@ -2,6 +2,9 @@ package com.ruolan.user.ui.activity
 
 import android.os.Bundle
 import android.view.View
+import com.alibaba.android.arouter.facade.annotation.Autowired
+import com.ruolan.factory.PushProvider
+import com.ruolan.factory.router.RouterPath
 import com.ruolan.user.R
 import com.ruolan.user.data.model.UserInfo
 import com.ruolan.user.injection.component.DaggerUserComponent
@@ -22,7 +25,9 @@ import ruolan.com.baselibrary.ui.activity.BaseMvpActivity
  */
 class LoginActivity: BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClickListener {
 
-
+    @Autowired(name = RouterPath.MessageCenter.PATH_MESSAGE_PUSH)
+    @JvmField
+    var mPushProvider: PushProvider? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +58,7 @@ class LoginActivity: BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClickL
             }
 
             R.id.mLoginBtn -> {
-                mPresenter.login(mMobileEt.text.toString(),mPwdEt.text.toString(),"")
+                mPresenter.login(mMobileEt.text.toString(),mPwdEt.text.toString(), mPushProvider?.getPushId()?:"")
             }
 
         }
@@ -66,7 +71,7 @@ class LoginActivity: BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClickL
                 .build()
                 .inject(this)
 
-        mPresenter.mView = this;
+        mPresenter.mView = this
     }
 
 

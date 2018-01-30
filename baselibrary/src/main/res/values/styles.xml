@@ -6,9 +6,9 @@
         <item name="android:textSize">@dimen/text_middle_size</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="colorPrimary">@color/common_black</item>
-        <item name="colorPrimaryDark">@color/common_black</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/common_blue</item>
+        <item name="colorPrimaryDark">@color/common_blue</item>
+        <item name="colorAccent">@color/common_blue</item>
     </style>
     <!-- Window黑色背景主题 -->
     <style name="AppTheme.Black" parent="@style/AppTheme">
