@@ -1,6 +1,7 @@
 package ruolan.com.baselibrary.ui.activity
 
 import android.os.Bundle
+import com.alibaba.android.arouter.launcher.ARouter
 import org.jetbrains.anko.toast
 import ruolan.com.baselibrary.common.BaseApplication
 import ruolan.com.baselibrary.injection.component.ActivityComponent
@@ -40,6 +41,9 @@ open abstract class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), Base
         initActivityComponent()
 
         injectComponent()
+
+        //ARouter注册
+        ARouter.getInstance().inject(this)
     }
 
     abstract fun injectComponent()

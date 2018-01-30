@@ -1,5 +1,6 @@
 package ruolan.com.kotlin.common
 
+import android.util.Log
 import cn.jpush.android.api.JPushInterface
 import ruolan.com.baselibrary.common.BaseApplication
 
@@ -8,7 +9,7 @@ import ruolan.com.baselibrary.common.BaseApplication
  *
  * @function
  */
-class MainApplication:BaseApplication() {
+class MainApplication : BaseApplication() {
 
 
     override fun onCreate() {
@@ -17,5 +18,7 @@ class MainApplication:BaseApplication() {
         //极光推送初始化
         JPushInterface.setDebugMode(true)
         JPushInterface.init(this)
+
+        Log.d("MainApplication", JPushInterface.getRegistrationID(this))
     }
 }
