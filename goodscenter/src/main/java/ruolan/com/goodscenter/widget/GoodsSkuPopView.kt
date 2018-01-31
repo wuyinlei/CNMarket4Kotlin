@@ -16,7 +16,9 @@ import ruolan.com.baselibrary.widget.DefaultTextWatcher
 import ruolan.com.goodscenter.R
 import ruolan.com.goodscenter.common.GoodsConstant
 import ruolan.com.goodscenter.data.protocol.GoodsSku
+import ruolan.com.goodscenter.event.AddCartEvent
 import ruolan.com.goodscenter.event.SkuChangedEvent
+import ruolan.com.goodscenter.getEditText
 
 /*
     商品SKU弹层
@@ -47,7 +49,7 @@ class GoodsSkuPopView(context: Activity) : PopupWindow(context), View.OnClickLis
         background.alpha = 150
         // mMenuView添加OnTouchListener监听判断获取触屏位置如果在选择框外面则销毁弹出框
         mRootView.setOnTouchListener { _, event ->
-            val height = mRootView.findViewById(R.id.mPopView).top
+//            val height = mRootView.findViewById(R.id.mPopView).top
             val y = event.y.toInt()
             if (event.action == MotionEvent.ACTION_UP) {
                 if (y < height) {
@@ -78,7 +80,7 @@ class GoodsSkuPopView(context: Activity) : PopupWindow(context), View.OnClickLis
         )
 
         mRootView.mAddCartBtn.onClick {
-//            TODO()需要event
+            Bus.send(AddCartEvent())
             dismiss()
         }
     }

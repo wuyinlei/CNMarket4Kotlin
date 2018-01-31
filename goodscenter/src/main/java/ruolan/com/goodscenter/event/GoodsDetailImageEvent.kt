@@ -5,4 +5,4 @@ package ruolan.com.goodscenter.event
  *
  * @function
  */
-class SkuChangedEvent
+class GoodsDetailImageEvent(val imgOne:String,val imgTwo:String)
