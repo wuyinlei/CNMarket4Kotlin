@@ -11,4 +11,6 @@ import ruolan.com.messagecenter.data.protocol.Message
 interface MessageView : BaseView {
 
     fun onMessageResult(result: MutableList<Message>)
+
+    fun onNoPermission()
 }

@@ -19,7 +19,7 @@ interface CartService {
     /**
      * 获取购物车数据
      */
-    fun getCartGoods(): Observable<BaseResp<MutableList<CartGoods>>>
+    fun getCartGoodsList(): Observable<BaseResp<MutableList<CartGoods>>>
 
 
     /**

@@ -17,14 +17,18 @@ import javax.inject.Inject
 class MessagePresenter @Inject constructor() : BasePresenter<MessageView>() {
 
     @Inject
-     lateinit var messageService: MessageServiceImpl
+    lateinit var messageService: MessageServiceImpl
 
     fun getMessageList() {
         messageService
                 .getMessageList()
                 .excute(object : BaseSubscriber<BaseResp<MutableList<Message>>>(mView) {
                     override fun onNext(t: BaseResp<MutableList<Message>>) {
-                        mView.onMessageResult(t.data)
+                        if (t.status == -2) {
+                            mView.onNoPermission()
+                        } else {
+                            mView.onMessageResult(t.data)
+                        }
                     }
                 }, lifecycleProvider)
     }

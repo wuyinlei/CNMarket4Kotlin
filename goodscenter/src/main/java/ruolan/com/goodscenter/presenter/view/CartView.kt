@@ -20,4 +20,6 @@ interface CartView : BaseView {
     //提交购物车
     fun onSubmitCartListResult(result: Int)
 
+    fun onNoPermission()
+
 }

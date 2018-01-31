@@ -24,14 +24,18 @@ class CartPresenter @Inject constructor() : BasePresenter<CartView>() {
         if (!checkNetWork()) {
             return
         }
-        cartService.getCartGoods()
+        cartService.getCartGoodsList()
                 .excute(object : BaseSubscriber<BaseResp<MutableList<CartGoods>>>(mView) {
                     override fun onNext(t: BaseResp<MutableList<CartGoods>>) {
-                        mView.onGetCartListResult(t.data)
+                        if (t.status == -2) {
+                            mView.onNoPermission()
+                        } else {
+                            mView.onGetCartListResult(t.data)
+                        }
                     }
+
                 }, lifecycleProvider)
     }
-
 
 
     fun delCartList(list: List<Int>) {
@@ -40,11 +44,11 @@ class CartPresenter @Inject constructor() : BasePresenter<CartView>() {
         }
 
         cartService.delCartGoods(list)
-                .excute(object : BaseSubscriber<BaseResp<String>>(mView){
+                .excute(object : BaseSubscriber<BaseResp<String>>(mView) {
                     override fun onNext(t: BaseResp<String>) {
                         mView.onDeleteCartListResult(t.message.equals("删除商品成功"))
                     }
-                },lifecycleProvider)
+                }, lifecycleProvider)
 
     }
 }

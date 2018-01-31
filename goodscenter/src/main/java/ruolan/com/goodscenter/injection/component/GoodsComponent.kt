@@ -14,7 +14,7 @@ import ruolan.com.goodscenter.ui.fragment.GoodsDetailOneFragment
  * @function
  */
 @PerComponentScope
-@Component(dependencies = arrayOf(ActivityComponent::class), modules = arrayOf(GoodsModule::class, CartModule::class))
+@Component(dependencies = arrayOf(ActivityComponent::class), modules = arrayOf(GoodsModule::class,CartModule::class))
 interface GoodsComponent {
 
     fun inject(activity: GoodsActivity)

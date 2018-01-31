@@ -29,7 +29,7 @@ class CartServiceImpl @Inject constructor() : CartService {
 
     }
 
-    override fun getCartGoods(): Observable<BaseResp<MutableList<CartGoods>>> {
+    override fun getCartGoodsList(): Observable<BaseResp<MutableList<CartGoods>>> {
         return respository.getCartGoods()
     }
 

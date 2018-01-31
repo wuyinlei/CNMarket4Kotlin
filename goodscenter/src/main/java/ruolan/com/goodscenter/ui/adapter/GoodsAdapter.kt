@@ -14,6 +14,8 @@ import ruolan.com.goodscenter.data.protocol.Goods
 
 /**
  * Created by wuyinlei on 2018/1/27.
+ *
+ * @function
  */
 class GoodsAdapter(context: Context): BaseRecyclerViewAdapter<Goods, GoodsAdapter.ViewHolder>(context) {
 
