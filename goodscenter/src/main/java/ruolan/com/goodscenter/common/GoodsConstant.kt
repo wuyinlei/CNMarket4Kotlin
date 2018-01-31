@@ -11,5 +11,7 @@ class GoodsConstant {
 
         //商品分类ID
         const  val KEY_CATEGORY_ID = "category_id"
+
+        const val SKU_SEPARATOR = ","
     }
 }
