@@ -30,6 +30,7 @@ import ruolan.com.baselibrary.utils.DateUtils
 import ruolan.com.baselibrary.utils.GlideUtils
 import java.io.File
 
+@Suppress("DEPRECATION")
 /**
  * Created by wuyinlei on 2018/1/22.
  *
@@ -137,13 +138,14 @@ class UserInfoActivity : BaseMvpActivity<UserInofPresenter>(), UserInfoView, Tak
     override fun onGetUploadTokenResult(result: String) {
         Log.d("token",result)
 
-        mUploadManager.put(mLocalFileUrl,null,result, { key, info, response ->
+        mUploadManager.put(mLocalFileUrl,null,result, { _, _, response ->
             mRemoteFileUrl = BaseConstants.IMAGE_SERVER_ADDRESS + response?.get("hash")
             Log.d("test", mRemoteFileUrl)
             GlideUtils.loadUrlImage(this@UserInfoActivity, mRemoteFileUrl!!,mUserIconIv)
         },null)
 
     }
+
 
     /**
      * 更改用户信息回调方法

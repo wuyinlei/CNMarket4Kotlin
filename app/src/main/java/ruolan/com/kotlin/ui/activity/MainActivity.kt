@@ -7,9 +7,12 @@ import com.ashokvarma.bottomnavigation.BottomNavigationBar
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.toast
 import ruolan.com.baselibrary.common.AppManager
+import ruolan.com.goodscenter.ui.fragment.CartFragment
+import ruolan.com.goodscenter.ui.fragment.CategoryFragment
 import ruolan.com.kotlin.R
 import ruolan.com.kotlin.ui.fragment.HomeFragment
 import ruolan.com.kotlin.ui.fragment.MineFragment
+import ruolan.com.messagecenter.ui.fragment.MessageFragment
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -17,9 +20,9 @@ class MainActivity : AppCompatActivity() {
     private var pressTime: Long = 0
 
     private val mHomeFragment by lazy { HomeFragment() }
-    private val mCategoryFragment by lazy { HomeFragment() }
-    private val mCartFragment by lazy { HomeFragment() }
-    private val mMsgFragment by lazy { HomeFragment() }
+    private val mCategoryFragment by lazy { CategoryFragment() }
+    private val mCartFragment by lazy { CartFragment() }
+    private val mMsgFragment by lazy { MessageFragment() }
 
     private val mMineFragment by lazy { MineFragment() }
 

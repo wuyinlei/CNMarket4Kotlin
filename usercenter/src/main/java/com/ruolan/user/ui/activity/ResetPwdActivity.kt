@@ -15,6 +15,7 @@ import ruolan.com.baselibrary.ext.enable
 import ruolan.com.baselibrary.ext.onClick
 import ruolan.com.baselibrary.ui.activity.BaseMvpActivity
 
+@Suppress("DEPRECATION")
 /**
  * Created by wuyinlei on 2018/1/22.
  *

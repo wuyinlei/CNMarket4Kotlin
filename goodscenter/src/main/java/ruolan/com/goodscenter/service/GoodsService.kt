@@ -12,6 +12,10 @@ import rx.Observable
 interface GoodsService {
 
     //获取商品类别
-    fun getGoods(categoryId:Int,pageNo:Int): Observable<BaseResp<MutableList<Goods>>>
+    fun getGoods(categoryId: Int, pageNo: Int): Observable<BaseResp<MutableList<Goods>>>
+
+
+    //获取商品详情信息
+    fun getGoodsDetail(goodsId: Int): Observable<BaseResp<Goods>>
 
 }
