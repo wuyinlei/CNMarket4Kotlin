@@ -18,7 +18,7 @@ import javax.inject.Inject
  * @function  mvp activity基类
  *
  */
-open abstract class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), BaseView {
+abstract class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), BaseView {
 
     override fun hideLoading() {
     }

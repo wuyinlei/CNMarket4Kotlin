@@ -25,6 +25,7 @@ import ruolan.com.baselibrary.ui.activity.BaseMvpActivity
  *
  * @function
  */
+@Suppress("DEPRECATION")
 @Route(path = RouterPath.UserCenter.PATH_LOGIN)
 class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClickListener {
 

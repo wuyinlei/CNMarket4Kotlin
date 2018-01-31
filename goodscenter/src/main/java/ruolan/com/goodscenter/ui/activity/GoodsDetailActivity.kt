@@ -20,7 +20,7 @@ class GoodsDetailActivity : FragmentActivity() {
     private fun initView() {
 
         mGoodsDetailTab.tabMode = TabLayout.MODE_FIXED
-        mGoodsDetailVp.adapter = GoodsDetailVpAdapter(supportFragmentManager,this)
+        mGoodsDetailVp.adapter = GoodsDetailVpAdapter(supportFragmentManager)
         //TabLayout关联ViewPager
         mGoodsDetailTab.setupWithViewPager(mGoodsDetailVp)
 

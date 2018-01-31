@@ -7,6 +7,7 @@ import cn.bingoogolapple.refreshlayout.BGARefreshLayout
 import com.kennyc.view.MultiStateView
 import kotlinx.android.synthetic.main.activity_goods.*
 import org.jetbrains.anko.startActivity
+import ruolan.com.baselibrary.common.BaseConstants
 import ruolan.com.baselibrary.ext.startLoading
 import ruolan.com.baselibrary.ui.activity.BaseMvpActivity
 import ruolan.com.baselibrary.ui.adapter.BaseRecyclerViewAdapter
@@ -80,7 +81,7 @@ class GoodsActivity : BaseMvpActivity<GoodsPresenter>(), GoodsView, BGARefreshLa
         mGoodsAdapter.setOnItemClickListener(object :BaseRecyclerViewAdapter.OnItemClickListener<Goods>{
             override fun onItemClick(item: Goods, position: Int) {
 
-                startActivity<GoodsDetailActivity>()
+                startActivity<GoodsDetailActivity>(GoodsConstant.KEY_CATEGORY_ID to item.id)
             }
 
         })

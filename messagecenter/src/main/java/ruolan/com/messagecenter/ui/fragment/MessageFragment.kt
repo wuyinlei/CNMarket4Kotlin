@@ -17,6 +17,7 @@ import ruolan.com.messagecenter.presenter.MessagePresenter
 import ruolan.com.messagecenter.presenter.view.MessageView
 import ruolan.com.messagecenter.ui.adapter.MessageAdapter
 
+@Suppress("DEPRECATION")
 /**
  * Created by wuyinlei on 2018/1/30.
  *
@@ -82,14 +83,7 @@ class MessageFragment : BaseMvpFragment<MessagePresenter>(), MessageView {
         mMessageRv.layoutManager = LinearLayoutManager(context)
         mAdapter = MessageAdapter(context)
         mMessageRv.adapter = mAdapter
-        mMultiStateView.setStateListener(object :MultiStateView.StateListener{
-            override fun onStateChanged(p0: Int) {
-
-
-            }
-
-
-        })
+        mMultiStateView.setStateListener { }
     }
 
     /*

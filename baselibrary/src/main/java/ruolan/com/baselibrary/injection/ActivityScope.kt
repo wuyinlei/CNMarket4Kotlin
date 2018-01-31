@@ -9,6 +9,7 @@ import java.lang.annotation.RetentionPolicy.RUNTIME
  * @function
  */
 
+@Suppress("DEPRECATED_JAVA_ANNOTATION")
 @Scope
 @Retention(RUNTIME)
 annotation class ActivityScope

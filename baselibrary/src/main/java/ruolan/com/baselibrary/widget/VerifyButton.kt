@@ -6,6 +6,7 @@ import android.util.AttributeSet
 import android.widget.Button
 import ruolan.com.baselibrary.R
 
+@Suppress("DEPRECATION")
 /*
     获取验证码按钮
     带倒计时

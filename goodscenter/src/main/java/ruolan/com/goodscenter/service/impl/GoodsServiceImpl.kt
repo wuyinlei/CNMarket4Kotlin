@@ -17,8 +17,13 @@ import javax.inject.Inject
 class GoodsServiceImpl @Inject constructor() : GoodsService {
 
 
+    override fun getGoodsDetail(goodsId: Int): Observable<BaseResp<Goods>> {
+        return respository.getGoodsDetail(goodsId)
+    }
+
+
     override fun getGoods(categoryId: Int, pageNo: Int): Observable<BaseResp<MutableList<Goods>>> {
-    return respository.getCategory(categoryId,pageNo)
+        return respository.getCategory(categoryId, pageNo)
     }
 
     @Inject

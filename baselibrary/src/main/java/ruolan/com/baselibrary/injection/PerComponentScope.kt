@@ -10,6 +10,7 @@ import javax.inject.Scope
  * @function
  */
 
+@Suppress("DEPRECATED_JAVA_ANNOTATION")
 @Scope
 @Retention(RetentionPolicy.RUNTIME)
 annotation class PerComponentScope

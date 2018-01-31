@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.activity_register.*
 import org.jetbrains.anko.toast
 import ruolan.com.baselibrary.ui.activity.BaseMvpActivity
 
+@Suppress("DEPRECATION")
 /**
  * Created by wuyinlei on 2018/1/17.
  *
