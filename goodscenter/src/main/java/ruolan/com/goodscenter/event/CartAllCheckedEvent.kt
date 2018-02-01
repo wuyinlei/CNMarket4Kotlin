@@ -5,4 +5,4 @@ package ruolan.com.goodscenter.event
  *
  * @function
  */
-class SkuChangedEvent
+class CartAllCheckedEvent(isCheckAll:Boolean)

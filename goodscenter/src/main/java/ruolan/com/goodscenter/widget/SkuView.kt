@@ -6,12 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.TextView
+import com.eightbitlab.rxbus.Bus
 import com.zhy.view.flowlayout.FlowLayout
 import com.zhy.view.flowlayout.TagAdapter
 import kotlinx.android.synthetic.main.layout_sku_view.view.*
 import ruolan.com.goodscenter.R
 import ruolan.com.goodscenter.common.GoodsConstant
 import ruolan.com.goodscenter.data.protocol.GoodsSku
+import ruolan.com.goodscenter.event.SkuChangedEvent
 
 /*
     单个SKU
@@ -31,10 +33,10 @@ class SkuView @JvmOverloads constructor(context: Context, attrs: AttributeSet? =
         mSkuTitleTv.text = goodsSku.skuTitle
 
         //FlowLayout设置数据
-        mSkuContentView.adapter = object :TagAdapter<String>(goodsSku.skuContent){
+        mSkuContentView.adapter = object : TagAdapter<String>(goodsSku.skuContent) {
             override fun getView(parent: FlowLayout?, position: Int, t: String?): View {
                 val view = LayoutInflater.from(context)
-                        .inflate(R.layout.layout_sku_item,parent,false) as TextView
+                        .inflate(R.layout.layout_sku_item, parent, false) as TextView
                 view.text = t
                 return view
             }
@@ -43,7 +45,7 @@ class SkuView @JvmOverloads constructor(context: Context, attrs: AttributeSet? =
         mSkuContentView.adapter.setSelectedList(0)
 
         mSkuContentView.setOnTagClickListener { _, _, _ ->
-//            TODO()需要rxbus
+            Bus.send(SkuChangedEvent())
             true
         }
     }

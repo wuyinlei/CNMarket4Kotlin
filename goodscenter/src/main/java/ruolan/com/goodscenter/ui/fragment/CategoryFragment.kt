@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.kennyc.view.MultiStateView
-import com.ruolan.user.injection.component.DaggerCategoryComponent
 import kotlinx.android.synthetic.main.fragment_category.*
 import org.jetbrains.anko.support.v4.startActivity
 import ruolan.com.baselibrary.ext.setVisible
@@ -16,6 +15,7 @@ import ruolan.com.baselibrary.ui.fragment.BaseMvpFragment
 import ruolan.com.goodscenter.R
 import ruolan.com.goodscenter.common.GoodsConstant
 import ruolan.com.goodscenter.data.protocol.Category
+import ruolan.com.goodscenter.injection.component.DaggerCategoryComponent
 import ruolan.com.goodscenter.injection.module.CategoryModule
 import ruolan.com.goodscenter.presenter.CategoryPresenter
 import ruolan.com.goodscenter.presenter.view.CategoryView

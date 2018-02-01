@@ -5,7 +5,9 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.alibaba.android.arouter.launcher.ARouter
 import com.kennyc.view.MultiStateView
+import com.ruolan.factory.router.RouterPath
 import kotlinx.android.synthetic.main.fragment_message.*
 import ruolan.com.baselibrary.ext.startLoading
 import ruolan.com.baselibrary.ui.fragment.BaseMvpFragment
@@ -31,10 +33,10 @@ class MessageFragment : BaseMvpFragment<MessagePresenter>(), MessageView {
 
     override fun onMessageResult(result: MutableList<Message>) {
 
-        if (!result.isEmpty()){
+        if (!result.isEmpty()) {
             mAdapter.setData(result)
             mMultiStateView.viewState = MultiStateView.VIEW_STATE_CONTENT
-        }else{
+        } else {
             //数据为空
             mMultiStateView.viewState = MultiStateView.VIEW_STATE_EMPTY
         }
@@ -78,7 +80,6 @@ class MessageFragment : BaseMvpFragment<MessagePresenter>(), MessageView {
     }
 
 
-
     private fun initView() {
         mMessageRv.layoutManager = LinearLayoutManager(context)
         mAdapter = MessageAdapter(context)
@@ -91,9 +92,17 @@ class MessageFragment : BaseMvpFragment<MessagePresenter>(), MessageView {
     */
     override fun onHiddenChanged(hidden: Boolean) {
         super.onHiddenChanged(hidden)
-        if (!hidden){
+        if (!hidden) {
 
         }
+    }
+
+    override fun onNoPermission() {
+        mMultiStateView.viewState = MultiStateView.VIEW_STATE_ERROR
+        mMultiStateView.getView(MultiStateView.VIEW_STATE_ERROR)?.setOnClickListener({
+            //跳转到登录界面
+            ARouter.getInstance().build(RouterPath.UserCenter.PATH_LOGIN).navigation()
+        })
     }
 
 }

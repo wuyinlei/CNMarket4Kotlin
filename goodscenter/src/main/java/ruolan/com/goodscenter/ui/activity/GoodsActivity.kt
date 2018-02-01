@@ -7,14 +7,13 @@ import cn.bingoogolapple.refreshlayout.BGARefreshLayout
 import com.kennyc.view.MultiStateView
 import kotlinx.android.synthetic.main.activity_goods.*
 import org.jetbrains.anko.startActivity
-import ruolan.com.baselibrary.common.BaseConstants
 import ruolan.com.baselibrary.ext.startLoading
 import ruolan.com.baselibrary.ui.activity.BaseMvpActivity
 import ruolan.com.baselibrary.ui.adapter.BaseRecyclerViewAdapter
 import ruolan.com.goodscenter.R
 import ruolan.com.goodscenter.common.GoodsConstant
 import ruolan.com.goodscenter.data.protocol.Goods
-import ruolan.com.goodscenter.injection.component.DaggerCoodsComponent
+import ruolan.com.goodscenter.injection.component.DaggerGoodsComponent
 import ruolan.com.goodscenter.injection.module.GoodsModule
 import ruolan.com.goodscenter.presenter.GoodsPresenter
 import ruolan.com.goodscenter.presenter.view.GoodsView
@@ -47,7 +46,7 @@ class GoodsActivity : BaseMvpActivity<GoodsPresenter>(), GoodsView, BGARefreshLa
 
     override fun injectComponent() {
 
-        DaggerCoodsComponent.builder()
+        DaggerGoodsComponent.builder()
                 .activityComponent(mActivityComponent)
                 .goodsModule(GoodsModule())
                 .build().inject(this)

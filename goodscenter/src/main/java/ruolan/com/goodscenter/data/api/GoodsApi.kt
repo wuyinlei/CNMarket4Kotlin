@@ -1,10 +1,10 @@
 package ruolan.com.goodscenter.data.api
 
 import retrofit2.http.Body
-import retrofit2.http.GET
 import retrofit2.http.POST
 import ruolan.com.baselibrary.data.model.BaseResp
 import ruolan.com.goodscenter.data.protocol.GetGoodsDetail
+import ruolan.com.goodscenter.data.protocol.GetGoodsListByKeyword
 import ruolan.com.goodscenter.data.protocol.GetGoodsListReq
 import ruolan.com.goodscenter.data.protocol.Goods
 import rx.Observable
@@ -24,5 +24,9 @@ interface GoodsApi {
     @POST("kotlinserver/goods/getgoodsdetail")
     fun getGoodsDetail(@Body req: GetGoodsDetail):Observable<BaseResp<Goods>>
 
+
+    //用于搜索   后期做
+    @POST("kotlinserver/goods/getgoodsbykeyword")
+    fun searchGoodsByKeyword(@Body req: GetGoodsListByKeyword):Observable<BaseResp<MutableList<Goods>>>
 
 }

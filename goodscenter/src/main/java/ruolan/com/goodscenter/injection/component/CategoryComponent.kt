@@ -1,4 +1,4 @@
-package com.ruolan.user.injection.component
+package ruolan.com.goodscenter.injection.component
 
 import ruolan.com.goodscenter.injection.module.CategoryModule
 import dagger.Component
