@@ -6,15 +6,16 @@ import com.alibaba.android.arouter.launcher.ARouter
 import ruolan.com.baselibrary.injection.component.AppComponent
 import ruolan.com.baselibrary.injection.component.DaggerAppComponent
 import ruolan.com.baselibrary.injection.module.AppModule
+import ruolan.com.baselibrary.utils.AppUtils
 
 /**
  * Created by wuyinlei on 2018/1/21.
  *
  * @function
  */
-open class BaseApplication:Application(){
+open class BaseApplication : Application() {
 
-    lateinit var appComponent:AppComponent
+    lateinit var appComponent: AppComponent
 
     override fun onCreate() {
         super.onCreate()
@@ -23,9 +24,12 @@ open class BaseApplication:Application(){
 
         context = this
 
-        //ARouter初始化
-        ARouter.openLog()    // 打印日志
-        ARouter.openDebug()
+        //判断当只有当前app处于debug的时候才去打印日志
+        if (AppUtils.idDebug(this)) {
+            //ARouter初始化
+            ARouter.openLog()    // 打印日志
+            ARouter.openDebug()
+        }
         ARouter.init(this)
     }
 
