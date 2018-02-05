@@ -42,8 +42,7 @@ abstract class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), BaseView 
 
         injectComponent()
 
-        //ARouter注册
-        ARouter.getInstance().inject(this)
+
     }
 
     abstract fun injectComponent()

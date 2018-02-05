@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.alibaba.android.arouter.launcher.ARouter
 import com.ruolan.factory.PushProvider
 import com.ruolan.factory.router.RouterPath
 import com.ruolan.user.R
@@ -82,6 +83,12 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClick
     override fun onLoginResult(userInfo: UserInfo) {
         toast("登录成功")
         putUserInfo(userInfo)
+        //这个地方加入了空动画  是为了解决当这个登录成功之后跳转到主界面的时候  会有一个app的桌面图片的界面
+        //使用这个空动画是为了覆盖系统的  这个也是arouter的一个bug?还是  系统正常的跳转是不存在这个bug的
+        ARouter.getInstance().build(RouterPath.MainCenter.MAIN_PATH)
+                .withTransition(R.anim.anim_in,R.anim.anim_out)
+                //而且这个地方必须使用当前的上下文  如果是默认的不填  也就是默认的application的上下文 是不行的
+                .navigation(this)
         finish()
     }
 

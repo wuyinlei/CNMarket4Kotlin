@@ -3,18 +3,18 @@
           package="ruolan.com.kotlin">
 
     <uses-permission android:name="android.permission.INTERNET"/>
-    <!-- Required -->
-    <!--<permission-->
-        <!--android:name="ruolan.com.cnmarket4kotlin.permission.JPUSH_MESSAGE"-->
-        <!--android:protectionLevel="signature" />-->
 
+    <!-- Required -->
+    <!-- <permission -->
+    <!-- android:name="ruolan.com.cnmarket4kotlin.permission.JPUSH_MESSAGE" -->
+    <!-- android:protectionLevel="signature" /> -->
     <application
+        android:name=".common.MainApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name=".common.MainApplication"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.activity.MainActivity">
             <intent-filter>
@@ -22,19 +22,17 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-
         </activity>
 
-        <!--<activity android:name="com.ruolan.user.ui.activity.LoginActivity">-->
+        <!-- <activity android:name="com.ruolan.user.ui.activity.LoginActivity"> -->
 
-         <!---->
-        <!--</activity>-->
+
+        <!--  -->
+        <!-- </activity> -->
 
         <activity android:name=".ui.activity.SettingActivity"/>
-
-
-
-
+        <activity android:name=".ui.activity.SplashActivity">
+        </activity>
     </application>
 
 </manifest>

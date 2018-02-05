@@ -24,4 +24,11 @@ object RouterPath {
         }
     }
 
+    //主模块
+    class MainCenter {
+        companion object {
+            const val MAIN_PATH = "/mainCenter/push"
+        }
+    }
+
 }

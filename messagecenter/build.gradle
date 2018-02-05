@@ -47,9 +47,11 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':factory')
-
+    testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:0.5'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
+//    androidTestImplementation 'com.android.support.test:runner:0.5'
+//    androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
     //Dagger2
     compile 'com.google.dagger:dagger:2.11'
     kapt 'com.google.dagger:dagger-compiler:2.11'
@@ -61,5 +63,4 @@ dependencies {
 
     compile 'cn.jiguang.sdk:jpush:3.0.9'  // 此处以JPush 3.0.9 版本为例。
     compile 'cn.jiguang.sdk:jcore:1.1.7'  // 此处以JCore 1.1.7 版本为例。
-    testCompile 'org.testng:testng:6.9.6'
 }

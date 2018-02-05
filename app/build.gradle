@@ -15,7 +15,7 @@ android {
 
 
         manifestPlaceholders = [
-                JPUSH_PKGNAME : applicationId
+                JPUSH_PKGNAME: applicationId
         ]
 
     }
@@ -36,10 +36,10 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:0.5'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
     compile project(':factory')
-    if(isUserModule.toBoolean()) {
+    if (isUserModule.toBoolean()) {
         compile project(':usercenter')
     }
-    if (isGoodsModule.toBoolean()){
+    if (isGoodsModule.toBoolean()) {
         compile project(':goodscenter')
     }
     compile project(':messagecenter')

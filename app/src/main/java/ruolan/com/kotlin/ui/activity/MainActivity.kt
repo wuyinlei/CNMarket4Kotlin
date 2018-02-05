@@ -2,11 +2,13 @@ package ruolan.com.kotlin.ui.activity
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.app.AppCompatActivity
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.ashokvarma.bottomnavigation.BottomNavigationBar
+import com.ruolan.factory.router.RouterPath
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.toast
 import ruolan.com.baselibrary.common.AppManager
+import ruolan.com.baselibrary.ui.activity.BaseActivity
 import ruolan.com.goodscenter.ui.fragment.CartFragment
 import ruolan.com.goodscenter.ui.fragment.CategoryFragment
 import ruolan.com.kotlin.R
@@ -15,7 +17,8 @@ import ruolan.com.kotlin.ui.fragment.MineFragment
 import ruolan.com.messagecenter.ui.fragment.MessageFragment
 import java.util.*
 
-class MainActivity : AppCompatActivity() {
+@Route(path = RouterPath.MainCenter.MAIN_PATH)
+class MainActivity : BaseActivity() {
 
     private var pressTime: Long = 0
 

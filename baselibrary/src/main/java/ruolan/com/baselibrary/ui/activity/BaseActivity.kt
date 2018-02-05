@@ -1,6 +1,7 @@
 package ruolan.com.baselibrary.ui.activity
 
 import android.os.Bundle
+import com.alibaba.android.arouter.launcher.ARouter
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity
 import ruolan.com.baselibrary.common.AppManager
 
@@ -16,6 +17,9 @@ open class BaseActivity:RxAppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         AppManager.instance.addActivity(this)
+
+        //ARouter注册
+        ARouter.getInstance().inject(this)
     }
 
 
