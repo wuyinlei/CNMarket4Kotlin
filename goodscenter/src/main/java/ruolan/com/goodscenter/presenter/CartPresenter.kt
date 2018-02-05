@@ -51,4 +51,8 @@ class CartPresenter @Inject constructor() : BasePresenter<CartView>() {
                 }, lifecycleProvider)
 
     }
+
+    fun submitCartList(list: MutableList<CartGoods>,mTotalPrice:Long){
+
+    }
 }

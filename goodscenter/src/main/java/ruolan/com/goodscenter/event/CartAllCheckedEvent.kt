@@ -5,4 +5,4 @@ package ruolan.com.goodscenter.event
  *
  * @function
  */
-class CartAllCheckedEvent(isCheckAll:Boolean)
+class CartAllCheckedEvent(val isAllChecked:Boolean)

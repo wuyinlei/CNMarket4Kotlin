@@ -53,8 +53,13 @@ class CategoryFragment : BaseMvpFragment<CategoryPresenter>(), CategoryView {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loadData()
+
         initView()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        loadData()
     }
 
     private fun initView() {
