@@ -102,6 +102,7 @@ class MessageFragment : BaseMvpFragment<MessagePresenter>(), MessageView, BGARef
 
     override fun onStart() {
         super.onStart()
+        mMultiStateView.startLoading()
         loadData(mCurrentPage)
     }
 
