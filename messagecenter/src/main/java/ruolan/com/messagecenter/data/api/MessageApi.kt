@@ -1,7 +1,9 @@
 package ruolan.com.messagecenter.data.api
 
+import retrofit2.http.Body
 import retrofit2.http.POST
 import ruolan.com.baselibrary.data.model.BaseResp
+import ruolan.com.messagecenter.data.protocol.GetMessageListReq
 import ruolan.com.messagecenter.data.protocol.Message
 import rx.Observable
 
@@ -14,6 +16,6 @@ import rx.Observable
 interface MessageApi{
 
     @POST("kotlinserver/message/getList")
-    fun getMessageList():Observable<BaseResp<MutableList<Message>>>
+    fun getMessageList(@Body req: GetMessageListReq):Observable<BaseResp<MutableList<Message>>>
 
 }

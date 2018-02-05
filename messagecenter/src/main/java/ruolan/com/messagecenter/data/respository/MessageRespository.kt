@@ -3,6 +3,7 @@ package ruolan.com.messagecenter.data.respository
 import ruolan.com.baselibrary.data.model.BaseResp
 import ruolan.com.baselibrary.data.net.RetrofitFactory
 import ruolan.com.messagecenter.data.api.MessageApi
+import ruolan.com.messagecenter.data.protocol.GetMessageListReq
 import ruolan.com.messagecenter.data.protocol.Message
 import rx.Observable
 import javax.inject.Inject
@@ -14,10 +15,10 @@ import javax.inject.Inject
  */
 class MessageRespository @Inject constructor() {
 
-    fun getMessageList(): Observable<BaseResp<MutableList<Message>>> {
+    fun getMessageList(mCurrentPage: Int): Observable<BaseResp<MutableList<Message>>> {
         return RetrofitFactory.instance
                 .create(MessageApi::class.java)
-                .getMessageList()
+                .getMessageList(GetMessageListReq(mCurrentPage))
     }
 
 }

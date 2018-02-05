@@ -19,9 +19,9 @@ class MessagePresenter @Inject constructor() : BasePresenter<MessageView>() {
     @Inject
     lateinit var messageService: MessageServiceImpl
 
-    fun getMessageList() {
+    fun getMessageList(mCurrentPage: Int) {
         messageService
-                .getMessageList()
+                .getMessageList(mCurrentPage)
                 .excute(object : BaseSubscriber<BaseResp<MutableList<Message>>>(mView) {
                     override fun onNext(t: BaseResp<MutableList<Message>>) {
                         if (t.status == -2) {

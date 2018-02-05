@@ -14,9 +14,9 @@ import javax.inject.Inject
  */
 class MessageServiceImpl @Inject constructor() : MessageService {
 
-    override fun getMessageList(): Observable<BaseResp<MutableList<Message>>> {
+    override fun getMessageList(mCurrentPage: Int): Observable<BaseResp<MutableList<Message>>> {
 
-        return respository.getMessageList()
+        return respository.getMessageList(mCurrentPage)
     }
 
     @Inject

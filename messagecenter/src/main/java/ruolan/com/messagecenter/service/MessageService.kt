@@ -12,6 +12,6 @@ import rx.Observable
 
 interface MessageService{
 
-    fun getMessageList():Observable<BaseResp<MutableList<Message>>>
+    fun getMessageList(mCurrentPage: Int):Observable<BaseResp<MutableList<Message>>>
 
 }

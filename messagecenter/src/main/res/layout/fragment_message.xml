@@ -12,8 +12,14 @@
         android:id="@+id/mMultiStateView"
         style="@style/MultiStateStyle">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/mMessageRv"
-            style="@style/commonRecyclerView"/>
+        <cn.bingoogolapple.refreshlayout.BGARefreshLayout
+            android:id="@+id/mRefreshLayout"
+            style="@style/MatchMatch">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/mMessageRv"
+                style="@style/commonRecyclerView"/>
+
+        </cn.bingoogolapple.refreshlayout.BGARefreshLayout>
     </com.kennyc.view.MultiStateView>
 </LinearLayout>
