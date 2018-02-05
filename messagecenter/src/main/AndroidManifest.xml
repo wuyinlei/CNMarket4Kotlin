@@ -4,9 +4,9 @@
           package="ruolan.com.messagecenter">
 
     <!-- Required -->
-    <!--<permission-->
-        <!--android:name="ruolan.com.cnmarket4kotlin.permission.JPUSH_MESSAGE"-->
-        <!--android:protectionLevel="signature" />-->
+    <permission
+        android:name="ruolan.com.cnmarket4kotlin.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature" />
 
     <application
         android:allowBackup="true"

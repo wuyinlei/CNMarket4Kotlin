@@ -27,7 +27,6 @@ class UserServiceImpl @Inject constructor() : UserService {
         return respository.login(mobile,password,pushId)
     }
 
-
     override fun modifyInfo(userIcon: String, userName: String, userGender: String, userSign: String): Observable<BaseResp<UserInfo>> {
         return respository.editUser(userIcon,userName,userGender,userSign)
     }
@@ -39,6 +38,8 @@ class UserServiceImpl @Inject constructor() : UserService {
     override fun resetPwd(mobile: String, pwd: String): Observable<Boolean> {
         return respository.resetPwd(mobile,pwd).convertBoolean()
     }
+
+
 
 
 }

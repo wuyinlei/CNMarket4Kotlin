@@ -5,6 +5,8 @@ import android.content.Context
 import android.content.Intent
 import android.util.Log
 import cn.jpush.android.api.JPushInterface
+import com.alibaba.android.arouter.launcher.ARouter
+import com.ruolan.factory.router.RouterPath
 import org.json.JSONObject
 
 /**

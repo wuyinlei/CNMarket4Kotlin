@@ -19,7 +19,7 @@ import javax.inject.Inject
  *
  * @function
  */
-abstract class BaseMvpFragment<T : BasePresenter<*>> :BaseFragment(), BaseView {
+abstract class BaseMvpFragment<T : BasePresenter<*>> : BaseFragment(), BaseView {
 
     override fun onError(message: String) {
         toast(message)
@@ -52,7 +52,6 @@ abstract class BaseMvpFragment<T : BasePresenter<*>> :BaseFragment(), BaseView {
 
 
     abstract fun injectComponent()
-
 
 
     private fun initActivityComponent() {

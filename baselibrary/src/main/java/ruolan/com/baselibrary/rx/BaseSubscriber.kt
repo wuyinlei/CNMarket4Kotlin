@@ -1,5 +1,6 @@
 package ruolan.com.baselibrary.rx
 
+import android.util.Log
 import ruolan.com.baselibrary.presenter.view.BaseView
 import rx.Subscriber
 
@@ -17,5 +18,6 @@ open class BaseSubscriber<T>(val baseView:BaseView): Subscriber<T>() {
     }
 
     override fun onError(e: Throwable?) {
+       Log.d("BaseSubscriber", e?.message)
     }
 }

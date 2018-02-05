@@ -13,20 +13,20 @@ import javax.inject.Inject
  *
  * @function
  */
-class UserRespository @Inject constructor(){
+class UserRespository @Inject constructor() {
 
 
-    fun register(mobile:String,pwd:String,verifyCode:String):Observable<BaseResp<UserInfo>>{
-        return RetrofitFactory.instance.create(UserApi::class.java).register(RegisterReq(mobile,pwd,verifyCode))
+    fun register(mobile: String, pwd: String, verifyCode: String): Observable<BaseResp<UserInfo>> {
+        return RetrofitFactory.instance.create(UserApi::class.java).register(RegisterReq(mobile, pwd, verifyCode))
     }
 
-    fun login(mobile:String,password:String,pushId:String):Observable<BaseResp<UserInfo>>{
-        return RetrofitFactory.instance.create(UserApi::class.java).login(LoginReq(mobile,password,pushId))
+    fun login(mobile: String, password: String, pushId: String): Observable<BaseResp<UserInfo>> {
+        return RetrofitFactory.instance.create(UserApi::class.java).login(LoginReq(mobile, password, pushId))
     }
 
     /*
-      编辑用户资料
-   */
+       编辑用户资料
+    */
     fun editUser(userIcon: String, userName: String, userGender: String, userSign: String): Observable<BaseResp<UserInfo>> {
         return RetrofitFactory.instance.create(UserApi::class.java).editUser(EditUserReq(userIcon, userName, userGender, userSign))
     }
@@ -43,5 +43,6 @@ class UserRespository @Inject constructor(){
         return RetrofitFactory.instance.create(UserApi::class.java)
                 .resetPwd(ResetPwdReq(mobile, pwd))
     }
+
 
 }

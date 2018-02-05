@@ -60,7 +60,7 @@ class BottomNavBar @JvmOverloads constructor(
 
         //个人
         val userItem = BottomNavigationItem(R.drawable.btn_nav_user_press,
-                resources.getString(R.string.nav_bar_cart))
+                resources.getString(R.string.nav_bar_user))
                 .setActiveColorResource(R.color.common_blue)
                 .setInActiveColorResource(R.color.text_normal)
                 .setInactiveIconResource(R.drawable.btn_nav_user_normal)

@@ -32,6 +32,10 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView, Vie
             R.id.mRegisterBtn -> {
                 mPresenter.register(mMobileEt.text.toString(), mVerifyCodeEt.text.toString(), mPwdEt.text.toString())
             }
+
+            R.id.mVerifyCodeBtn->{
+                mVerifyCodeBtn.requestSendVerifyNumber()
+            }
         }
     }
 
