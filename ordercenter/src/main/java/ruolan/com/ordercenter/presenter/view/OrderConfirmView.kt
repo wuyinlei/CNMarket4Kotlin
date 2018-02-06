@@ -7,4 +7,6 @@ import ruolan.com.baselibrary.presenter.view.BaseView
  *
  * @function
  */
-interface OrderConfirmView : BaseView
+interface OrderConfirmView : BaseView{
+
+}

@@ -14,7 +14,6 @@ import javax.inject.Inject
  */
 class OrderServiceImpl @Inject constructor() : OrderService {
 
-
     override fun submitOrder(order: Order): Observable<BaseResp<String>> {
         return repository.submitOrder(order)
     }

@@ -9,7 +9,7 @@ import rx.Observable
 /**
  * Created by wuyinlei on 2018/2/6.
  *
- * @function
+ * @function 订单相关api
  *
  */
 interface OrderApi{
