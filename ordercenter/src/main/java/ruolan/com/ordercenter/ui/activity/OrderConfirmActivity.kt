@@ -10,6 +10,7 @@ import ruolan.com.ordercenter.presenter.view.OrderConfirmView
 
 class OrderConfirmActivity : BaseMvpActivity<OrderConfirmPresenter>(), OrderConfirmView {
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_order_confirm)

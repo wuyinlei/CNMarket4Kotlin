@@ -10,4 +10,5 @@ data class Order(
         val payType: Int,
         val totalPrice: Long,
         var orderStatus: Int
+
 )

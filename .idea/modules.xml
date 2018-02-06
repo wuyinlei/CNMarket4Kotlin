@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/factory/factory.iml" filepath="$PROJECT_DIR$/factory/factory.iml" />
       <module fileurl="file://$PROJECT_DIR$/goodscenter/goodscenter.iml" filepath="$PROJECT_DIR$/goodscenter/goodscenter.iml" />
       <module fileurl="file://$PROJECT_DIR$/messagecenter/messagecenter.iml" filepath="$PROJECT_DIR$/messagecenter/messagecenter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ordercenter/ordercenter.iml" filepath="$PROJECT_DIR$/ordercenter/ordercenter.iml" />
       <module fileurl="file://$PROJECT_DIR$/paysdk/paysdk.iml" filepath="$PROJECT_DIR$/paysdk/paysdk.iml" />
       <module fileurl="file://$PROJECT_DIR$/usercenter/usercenter.iml" filepath="$PROJECT_DIR$/usercenter/usercenter.iml" />
     </modules>

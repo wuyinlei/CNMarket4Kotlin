@@ -12,6 +12,7 @@ import javax.inject.Inject
  */
 class OrderConfirmPresenter @Inject constructor() : BasePresenter<OrderConfirmView>() {
 
+
     @Inject
     lateinit var orderService: OrderService
 
