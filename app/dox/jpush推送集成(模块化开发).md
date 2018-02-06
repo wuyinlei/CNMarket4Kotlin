@@ -95,7 +95,32 @@ dependencies {
 >说明：若没有res/drawable-xxxx/jpush_notification_icon这个资源默认使用应用图标作为通知icon，在5.0以上系统将应用图标作为statusbar icon可能显示不正常，用户可定义没有阴影和渐变色的icon替换这个文件，文件名不要变。
 
 ###  说明(模块化开发集成步骤)
+#### 遇到的问题
+比如我们的messageCenter这个模块需要用到极光推送,当然其他的模块也需要这个模块提供服务,因此如果我们按照极光推送的集成流程只做了如下的代码
+```
+ manifestPlaceholders = [
+                JPUSH_PKGNAME : "xxxxxx",
+                JPUSH_APPKEY : "xxxxxx", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
+        ]
+```
+这个在编译的时候会出现如下的错误
+```
 
+	Attribute provider#cn.jpush.android.service.DataProvider@authorities at AndroidManifest.xml requires a placeholder substitution but no value for <JPUSH_PKGNAME> is provided.
+/Users/wuyinlei/ASCode/CNMarket4Kotlin/app/src/main/AndroidManifest.xml:14:9-47 Error:
+	Attribute permission#${JPUSH_PKGNAME}.permission.JPUSH_MESSAGE@name at AndroidManifest.xml:14:9-47 requires a placeholder substitution but no value for <JPUSH_PKGNAME> is provided.
+/Users/wuyinlei/ASCode/CNMarket4Kotlin/app/src/main/AndroidManifest.xml:16:5-81 Error:
+	Attribute uses-permission#${JPUSH_PKGNAME}.permission.JPUSH_MESSAGE@name at AndroidManifest.xml:16:5-81 requires a placeholder substitution but no value for <JPUSH_PKGNAME> is provided.
 
+```
+也就是提示JPUSH_PKGNAME这个没有提供值,解决方法如下,也就是在我们的主module(最顶级的)的build.gradle中加入如下语句
+![image.png](http://upload-images.jianshu.io/upload_images/1316820-9133f3dc5d4070d3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+```
+ manifestPlaceholders = [
+                JPUSH_PKGNAME: applicationId
+        ]
+```
+在此编译就可以通过了`BUILD SUCCESSFUL in 8s`
 
   [1]: https://docs.jiguang.cn/jpush/client/Android/android_guide/
