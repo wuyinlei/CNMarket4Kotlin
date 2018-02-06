@@ -6,6 +6,8 @@ import android.content.Intent
 import android.util.Log
 import cn.jpush.android.api.JPushInterface
 import com.alibaba.android.arouter.launcher.ARouter
+import com.eightbitlab.rxbus.Bus
+import com.ruolan.factory.event.MessageBadgeEvent
 import com.ruolan.factory.router.RouterPath
 import org.json.JSONObject
 
@@ -27,8 +29,7 @@ class MessageReceiver : BroadcastReceiver() {
             JPushInterface.ACTION_REGISTRATION_ID == intent?.action -> Log.d("MessageReceiver", "JPush用户注册成功")
             JPushInterface.ACTION_MESSAGE_RECEIVED == intent?.action -> {
                 Log.d("MessageReceiver", "接受到推送下来的自定义消息")
-//                Bus.send(MessageBadgeEvent(true))
-
+                Bus.send(MessageBadgeEvent(true))
             }
             JPushInterface.ACTION_NOTIFICATION_RECEIVED == intent?.action -> Log.d("MessageReceiver", "接受到推送下来的通知")
             JPushInterface.ACTION_NOTIFICATION_OPENED == intent?.action -> {

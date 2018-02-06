@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.ashokvarma.bottomnavigation.BottomNavigationBar
+import com.eightbitlab.rxbus.Bus
+import com.eightbitlab.rxbus.registerInBus
+import com.ruolan.factory.event.MessageBadgeEvent
 import com.ruolan.factory.router.RouterPath
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.toast
@@ -35,9 +38,23 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        initView()
         initFragment()
         initBottomNav()
+
+        initObserve()
+
+    }
+
+    private fun initObserve() {
+
+        Bus.observe<MessageBadgeEvent>()
+                .subscribe {
+                    t: MessageBadgeEvent ->
+                    run {
+                        mBottomNavBar.checkMsgBadge(t.isVisible)
+                    }
+                }.registerInBus(this)
+
 
     }
 
@@ -92,9 +109,12 @@ class MainActivity : BaseActivity() {
 
     }
 
-    private fun initView() {
-
-
+    /*
+       取消Bus事件监听
+    */
+    override fun onDestroy() {
+        super.onDestroy()
+        Bus.unregister(this)
     }
 
     override fun onBackPressed() {

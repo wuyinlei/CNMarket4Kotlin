@@ -13,6 +13,7 @@ import com.kotlin.base.utils.YuanFenConverter
 import com.ruolan.factory.router.RouterPath
 import kotlinx.android.synthetic.main.fragment_cart.*
 import org.jetbrains.anko.support.v4.toast
+import ruolan.com.baselibrary.common.BaseConstants
 import ruolan.com.baselibrary.ext.onClick
 import ruolan.com.baselibrary.ext.setVisible
 import ruolan.com.baselibrary.ui.fragment.BaseMvpFragment
@@ -113,7 +114,7 @@ class CartFragment : BaseMvpFragment<CartPresenter>(), CartView, View.OnClickLis
                     .mapTo(cartIdList) { it.id }
             if (cartIdList.size == 0) {
                 toast("请选择需要删除的数据")
-            }else {
+            } else {
                 mPresenter.delCartList(cartIdList)
             }
         }
@@ -122,11 +123,11 @@ class CartFragment : BaseMvpFragment<CartPresenter>(), CartView, View.OnClickLis
         mSettleAccountsBtn.onClick {
             val cartGoodsList: MutableList<CartGoods> = arrayListOf()
             mCartGoodsAdapter.dataList.filter { it.isSelected }
-                    .mapTo(cartGoodsList){it}
+                    .mapTo(cartGoodsList) { it }
             if (cartGoodsList.size == 0) {
                 toast("请选择需要提交的数据")
-            }else {
-                mPresenter.submitCartList(cartGoodsList,mTotalPrice)
+            } else {
+                mPresenter.submitCartList(cartGoodsList, mTotalPrice)
             }
         }
 
@@ -146,7 +147,7 @@ class CartFragment : BaseMvpFragment<CartPresenter>(), CartView, View.OnClickLis
                         cart.isSelected = true
                     }
                     mCartGoodsAdapter.notifyDataSetChanged()
-                } else{
+                } else {
                     for (cart in mCartGoodsAdapter.dataList) {
                         cart.isSelected = false
                     }
@@ -182,6 +183,10 @@ class CartFragment : BaseMvpFragment<CartPresenter>(), CartView, View.OnClickLis
     }
 
     override fun onSubmitCartListResult(result: Int) {
+
+        ARouter.getInstance().build(RouterPath.OrderCenter.ORDER_PATH)
+                .withInt(BaseConstants.KEY_ORDER_ID, result)
+                .navigation()
 
     }
 

@@ -36,12 +36,12 @@ android {
         }
     }
 
-    sourceSets{
-        main{
-            if (!isUserModule.toBoolean()){
+    sourceSets {
+        main {
+            if (!isUserModule.toBoolean()) {
                 manifest.srcFile 'src/main/release/AndroidManifest.xml'
                 //release模式下排除debug文件夹中的所有Java文件
-                java{
+                java {
                     exclude 'debug/**'
                 }
             } else {
@@ -55,6 +55,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:0.5'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'

@@ -1,5 +1,7 @@
 package com.ruolan.factory.common
 
+import com.alibaba.android.arouter.launcher.ARouter
+import com.ruolan.factory.router.RouterPath
 import ruolan.com.baselibrary.common.BaseConstants
 import ruolan.com.baselibrary.utils.AppPrefsUtils
 
@@ -25,6 +27,6 @@ fun afterLogin(method: () -> Unit) {
         method()
     } else {
         //需要去登录
-
+        ARouter.getInstance().build(RouterPath.UserCenter.PATH_LOGIN).navigation()
     }
 }

@@ -11,7 +11,7 @@ package com.ruolan.factory.router
 object RouterPath {
 
     //用户模块
-    class UserCenter{
+    class UserCenter {
         companion object {
             const val PATH_LOGIN = "/userCenter/login"
         }
@@ -28,6 +28,20 @@ object RouterPath {
     class MainCenter {
         companion object {
             const val MAIN_PATH = "/mainCenter/push"
+        }
+    }
+
+    //订单模块
+    class OrderCenter {
+        companion object {
+            const val ORDER_PATH = "/orderCenter/order"
+        }
+    }
+
+    //支付模块
+    class PayCenter {
+        companion object {
+            const val PAY_PATH = "/payCenter/pay"
         }
     }
 

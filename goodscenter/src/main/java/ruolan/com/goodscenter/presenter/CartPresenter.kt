@@ -20,6 +20,9 @@ class CartPresenter @Inject constructor() : BasePresenter<CartView>() {
     @Inject
     lateinit var cartService: CartServiceImpl
 
+    /**
+     * 获取到购物车集合
+     */
     fun getCartList() {
         if (!checkNetWork()) {
             return
@@ -38,6 +41,9 @@ class CartPresenter @Inject constructor() : BasePresenter<CartView>() {
     }
 
 
+    /**
+     * 删除购物车
+     */
     fun delCartList(list: List<Int>) {
         if (!checkNetWork()) {
             return
@@ -52,7 +58,18 @@ class CartPresenter @Inject constructor() : BasePresenter<CartView>() {
 
     }
 
-    fun submitCartList(list: MutableList<CartGoods>,mTotalPrice:Long){
-
+    /**
+     * 提交购物车
+     */
+    fun submitCartList(list: MutableList<CartGoods>, mTotalPrice: Long) {
+        if (!checkNetWork()) {
+            return
+        }
+        cartService.submitCart(list, mTotalPrice)
+                .excute(object : BaseSubscriber<Int>(mView) {
+                    override fun onNext(t: Int) {
+                        mView.onSubmitCartListResult(t)
+                    }
+                }, lifecycleProvider)
     }
 }

@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/factory" />
             <option value="$PROJECT_DIR$/goodscenter" />
             <option value="$PROJECT_DIR$/messagecenter" />
+            <option value="$PROJECT_DIR$/paysdk" />
             <option value="$PROJECT_DIR$/usercenter" />
           </set>
         </option>

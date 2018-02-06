@@ -34,4 +34,9 @@ interface CartService {
      */
     fun delCartGoods(list: List<Int>):Observable<BaseResp<String>>
 
+     /*
+        购物车结算
+    */
+    fun submitCart(list: MutableList<CartGoods>, totalPrice: Long): Observable<Int>
+
 }

@@ -1,6 +1,7 @@
 package ruolan.com.goodscenter.service.impl
 
 import ruolan.com.baselibrary.data.model.BaseResp
+import ruolan.com.baselibrary.ext.convert
 import ruolan.com.goodscenter.data.protocol.CartGoods
 import ruolan.com.goodscenter.data.protocol.Category
 import ruolan.com.goodscenter.data.protocol.Goods
@@ -19,13 +20,14 @@ import javax.inject.Inject
  */
 class CartServiceImpl @Inject constructor() : CartService {
 
+
     override fun delCartGoods(list: List<Int>): Observable<BaseResp<String>> {
-        return  respository.delCartGoods(list)
+        return respository.delCartGoods(list)
 
     }
 
     override fun addCartGoods(goodsId: Int, goodsDesc: String, goodsIcon: String, goodsPrice: Long, goodsCount: Int, goodsSku: String): Observable<BaseResp<Int>> {
-        return respository.addCartGoods(goodsId,goodsDesc,goodsIcon,goodsPrice,goodsCount,goodsSku)
+        return respository.addCartGoods(goodsId, goodsDesc, goodsIcon, goodsPrice, goodsCount, goodsSku)
 
     }
 
@@ -33,7 +35,12 @@ class CartServiceImpl @Inject constructor() : CartService {
         return respository.getCartGoods()
     }
 
+    override fun submitCart(list: MutableList<CartGoods>, totalPrice: Long): Observable<Int> {
+        return respository.submitCartGoods(list, totalPrice).convert()
+    }
+
     @Inject
     lateinit var respository: CartGoodsRespository
+
 
 }

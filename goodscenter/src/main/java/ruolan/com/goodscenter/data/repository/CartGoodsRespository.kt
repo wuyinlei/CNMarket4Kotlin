@@ -32,5 +32,10 @@ class CartGoodsRespository @Inject constructor() {
                 .delCartGoods(DeleteCartGoodsReq(list))
     }
 
+    fun submitCartGoods(list:MutableList<CartGoods>,totalPrice:Long):Observable<BaseResp<Int>>{
+        return RetrofitFactory.instance.create(CartApi::class.java)
+                .submitCartGoods(SubmitCartReq(list,totalPrice))
+    }
+
 
 }

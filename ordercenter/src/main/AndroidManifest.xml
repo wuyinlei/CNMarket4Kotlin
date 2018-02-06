@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="ruolan.com.ordercenter">
+
+    <application>
+        <activity android:name=".ui.activity.OrderConfirmActivity">
+        </activity>
+    </application>
+
+</manifest>

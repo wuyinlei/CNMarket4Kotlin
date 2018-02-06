@@ -6,6 +6,7 @@ import ruolan.com.baselibrary.data.model.BaseResp
 import ruolan.com.goodscenter.data.protocol.AddCartGoodsReq
 import ruolan.com.goodscenter.data.protocol.CartGoods
 import ruolan.com.goodscenter.data.protocol.DeleteCartGoodsReq
+import ruolan.com.goodscenter.data.protocol.SubmitCartReq
 import rx.Observable
 
 /**
@@ -15,17 +16,19 @@ import rx.Observable
  */
 interface CartApi {
 
-
     @POST("kotlinserver/cartgoods/getList")
     fun getCartGoods(): Observable<BaseResp<MutableList<CartGoods>>>
 
 
     @POST("kotlinserver/cartgoods/add")
-    fun addCartGoods(@Body req: AddCartGoodsReq):Observable<BaseResp<Int>>
+    fun addCartGoods(@Body req: AddCartGoodsReq): Observable<BaseResp<Int>>
 
 
     @POST("kotlinserver/cartgoods/delete")
-    fun delCartGoods(@Body req: DeleteCartGoodsReq):Observable<BaseResp<String>>
+    fun delCartGoods(@Body req: DeleteCartGoodsReq): Observable<BaseResp<String>>
+
+    @POST("kotlinserver/cartgoods/submit")
+    fun submitCartGoods(@Body req: SubmitCartReq): Observable<BaseResp<Int>>
 
 
 }

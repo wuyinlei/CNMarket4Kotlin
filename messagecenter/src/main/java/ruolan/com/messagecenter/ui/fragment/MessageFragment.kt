@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import cn.bingoogolapple.refreshlayout.BGANormalRefreshViewHolder
 import cn.bingoogolapple.refreshlayout.BGARefreshLayout
 import com.alibaba.android.arouter.launcher.ARouter
+import com.eightbitlab.rxbus.Bus
 import com.kennyc.view.MultiStateView
+import com.ruolan.factory.event.MessageBadgeEvent
 import com.ruolan.factory.router.RouterPath
 import kotlinx.android.synthetic.main.fragment_message.*
 import ruolan.com.baselibrary.ext.startLoading
@@ -128,7 +130,7 @@ class MessageFragment : BaseMvpFragment<MessagePresenter>(), MessageView, BGARef
     override fun onHiddenChanged(hidden: Boolean) {
         super.onHiddenChanged(hidden)
         if (!hidden) {
-
+            Bus.send(MessageBadgeEvent(false))
         }
     }
 
