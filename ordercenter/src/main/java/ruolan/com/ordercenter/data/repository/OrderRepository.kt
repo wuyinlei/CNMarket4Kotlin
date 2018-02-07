@@ -3,6 +3,7 @@ package ruolan.com.ordercenter.data.repository
 import ruolan.com.baselibrary.data.model.BaseResp
 import ruolan.com.baselibrary.data.net.RetrofitFactory
 import ruolan.com.ordercenter.data.api.OrderApi
+import ruolan.com.ordercenter.data.protocol.GetOrderReq
 import ruolan.com.ordercenter.data.protocol.Order
 import ruolan.com.ordercenter.data.protocol.SubmitOrderReq
 import rx.Observable
@@ -19,6 +20,12 @@ class OrderRepository @Inject constructor() {
         return RetrofitFactory.instance
                 .create(OrderApi::class.java)
                 .confirmOrder(SubmitOrderReq(order))
+    }
+
+    fun getOrderById(orderId:Int):Observable<BaseResp<Order>>{
+        return RetrofitFactory.instance
+                .create(OrderApi::class.java)
+                .getOrderById(GetOrderReq(orderId))
     }
 
 }

@@ -17,4 +17,10 @@ interface OrderService {
      */
     fun submitOrder(order: Order): Observable<BaseResp<String>>
 
+    /**
+     * 获取到订单
+     */
+    fun getOrderById(orderId: Int): Observable<BaseResp<Order>>
+
+
 }
