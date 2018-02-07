@@ -13,7 +13,7 @@ open class BaseConstants {
         const val IMAGE_SERVER_ADDRESS = "http://ozejm5ujq.bkt.clouddn.com/"
 
         //本地服务器地址
-        const val SERVER_ADDRESS = "http://192.168.0.120:8080/"
+        const val SERVER_ADDRESS = "http://172.16.0.152:8080/"
         //SP表名
         const val TABLE_PREFS = "Kotlin_mall"
         //Token Key
