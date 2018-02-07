@@ -127,7 +127,10 @@ class CartFragment : BaseMvpFragment<CartPresenter>(), CartView, View.OnClickLis
             if (cartGoodsList.size == 0) {
                 toast("请选择需要提交的数据")
             } else {
-                mPresenter.submitCartList(cartGoodsList, mTotalPrice)
+//                mPresenter.submitCartList(cartGoodsList, mTotalPrice)
+                ARouter.getInstance().build(RouterPath.OrderCenter.ORDER_PATH)
+                .withInt(BaseConstants.KEY_ORDER_ID, 15)
+                .navigation()
             }
         }
 
@@ -184,9 +187,9 @@ class CartFragment : BaseMvpFragment<CartPresenter>(), CartView, View.OnClickLis
 
     override fun onSubmitCartListResult(result: Int) {
 
-        ARouter.getInstance().build(RouterPath.OrderCenter.ORDER_PATH)
-                .withInt(BaseConstants.KEY_ORDER_ID, result)
-                .navigation()
+//        ARouter.getInstance().build(RouterPath.OrderCenter.ORDER_PATH)
+//                .withInt(BaseConstants.KEY_ORDER_ID, result)
+//                .navigation()
 
     }
 
