@@ -15,7 +15,7 @@ interface OrderService {
     /**
      * 提交订单
      */
-    fun submitOrder(order: Order): Observable<BaseResp<String>>
+    fun submitOrder(order: Order): Observable<Boolean>
 
     /**
      * 获取到订单

@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.alibaba.android.arouter.launcher.ARouter
 import com.eightbitlab.rxbus.Bus
 import com.eightbitlab.rxbus.registerInBus
 import com.kotlin.base.utils.YuanFenConverter
@@ -59,11 +60,10 @@ class OrderConfirmActivity : BaseMvpActivity<OrderConfirmPresenter>(), OrderConf
         mSubmitOrderBtn.onClick {
             mCurrentOrder?.let {
                 if (mShipView.visibility == View.VISIBLE) {
-
+                    mPresenter.submitOrder(mCurrentOrder!!)
                 } else {
                     toast("请填写地址信息")
                 }
-//                mPresenter.su(it)
             }
         }
 
@@ -121,6 +121,19 @@ class OrderConfirmActivity : BaseMvpActivity<OrderConfirmPresenter>(), OrderConf
                 .registerInBus(this)
 
     }
+
+    /**
+     * 订单提交成功的回调
+     */
+    override fun onSubmitResult(boolean: Boolean) {
+        toast("订单提交成功")
+        ARouter.getInstance().build(RouterPath.PayCenter.PAY_PATH)
+                .withInt(BaseConstants.KEY_ORDER_ID,mCurrentOrder!!.id)
+                .withLong(BaseConstants.KEY_ORDER_PRICE,mCurrentOrder!!.totalPrice)
+                .navigation()
+        finish()
+    }
+
 
     override fun injectComponent() {
         DaggerOrderComponent.builder()

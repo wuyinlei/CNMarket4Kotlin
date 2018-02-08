@@ -128,12 +128,18 @@ class CartFragment : BaseMvpFragment<CartPresenter>(), CartView, View.OnClickLis
                 toast("请选择需要提交的数据")
             } else {
 //                mPresenter.submitCartList(cartGoodsList, mTotalPrice)
-                ARouter.getInstance().build(RouterPath.OrderCenter.ORDER_PATH)
-                .withInt(BaseConstants.KEY_ORDER_ID, 15)
-                .navigation()
+               submitCartList(15)
             }
         }
 
+    }
+
+    private fun submitCartList(result: Int){
+        ARouter.getInstance().build(RouterPath.OrderCenter.ORDER_PATH)
+                .withInt(BaseConstants.KEY_ORDER_ID, result)
+                .navigation()
+        mAllCheckedCb.isChecked = false
+        mTotalPriceTv.text = ""
     }
 
     private fun initData() {
@@ -186,11 +192,7 @@ class CartFragment : BaseMvpFragment<CartPresenter>(), CartView, View.OnClickLis
     }
 
     override fun onSubmitCartListResult(result: Int) {
-
-//        ARouter.getInstance().build(RouterPath.OrderCenter.ORDER_PATH)
-//                .withInt(BaseConstants.KEY_ORDER_ID, result)
-//                .navigation()
-
+        submitCartList(result)
     }
 
     override fun injectComponent() {

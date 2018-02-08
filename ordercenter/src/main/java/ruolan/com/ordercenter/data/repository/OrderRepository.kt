@@ -16,12 +16,18 @@ import javax.inject.Inject
  */
 class OrderRepository @Inject constructor() {
 
-    fun submitOrder(order: Order): Observable<BaseResp<String>> {
+    /**
+     * 提交订单
+     */
+    fun submitOrder(orderId: Int): Observable<BaseResp<String>> {
         return RetrofitFactory.instance
                 .create(OrderApi::class.java)
-                .confirmOrder(SubmitOrderReq(order))
+                .confirmOrder(SubmitOrderReq(orderId))
     }
 
+    /**
+     * 获取订单
+     */
     fun getOrderById(orderId:Int):Observable<BaseResp<Order>>{
         return RetrofitFactory.instance
                 .create(OrderApi::class.java)

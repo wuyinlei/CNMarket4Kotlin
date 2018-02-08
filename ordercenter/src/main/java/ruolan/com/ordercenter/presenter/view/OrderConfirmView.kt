@@ -12,4 +12,6 @@ interface OrderConfirmView : BaseView{
 
     fun onOrderResult(order: Order)
 
+    fun onSubmitResult(boolean: Boolean)
+
 }

@@ -18,6 +18,10 @@ import ruolan.com.baselibrary.ui.fragment.BaseFragment
 import ruolan.com.baselibrary.utils.AppPrefsUtils
 import ruolan.com.kotlin.R
 import ruolan.com.kotlin.ui.activity.SettingActivity
+import ruolan.com.ordercenter.common.OrderConstant
+import ruolan.com.ordercenter.common.OrderStatus
+import ruolan.com.ordercenter.ui.activity.OrderActivity
+import ruolan.com.ordercenter.ui.activity.ShipAddressActivity
 
 /**
  * Created by wuyinlei on 2018/1/26.
@@ -85,20 +89,36 @@ class MineFragment : BaseFragment(), View.OnClickListener {
             }
 
             R.id.mWaitPayOrderTv -> {
+                afterLogin {
+                    startActivity<OrderActivity>(OrderConstant.KEY_ORDER_STATUS to OrderStatus.ORDER_WAIT_PAY)
+                }
             }
+
             R.id.mWaitConfirmOrderTv -> {
+                afterLogin {
+                    startActivity<OrderActivity>(OrderConstant.KEY_ORDER_STATUS to OrderStatus.ORDER_WAIT_CONFIRM)
+                }
             }
+
             R.id.mCompleteOrderTv -> {
+                afterLogin {
+                    startActivity<OrderActivity>(OrderConstant.KEY_ORDER_STATUS to OrderStatus.ORDER_COMPLETED)
+                }
             }
+
+
             R.id.mAllOrderTv -> {
                 afterLogin {
+                    startActivity<OrderActivity>()
                 }
             }
 
             R.id.mAddressTv -> {
                 afterLogin {
+                    startActivity<ShipAddressActivity>()
                 }
             }
+
             R.id.mShareTv -> {
                 toast(R.string.coming_soon_tip)
             }

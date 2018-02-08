@@ -1,6 +1,7 @@
 package ruolan.com.ordercenter.service.impl
 
 import ruolan.com.baselibrary.data.model.BaseResp
+import ruolan.com.baselibrary.ext.convertBoolean
 import ruolan.com.ordercenter.data.protocol.Order
 import ruolan.com.ordercenter.data.repository.OrderRepository
 import ruolan.com.ordercenter.service.OrderService
@@ -18,8 +19,8 @@ class OrderServiceImpl @Inject constructor() : OrderService {
         return repository.getOrderById(orderId)
     }
 
-    override fun submitOrder(order: Order): Observable<BaseResp<String>> {
-        return repository.submitOrder(order)
+    override fun submitOrder(order: Order): Observable<Boolean> {
+        return repository.submitOrder(order.id).convertBoolean()
     }
 
 

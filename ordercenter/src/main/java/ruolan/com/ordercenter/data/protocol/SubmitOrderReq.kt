@@ -5,4 +5,4 @@ package ruolan.com.ordercenter.data.protocol
  *
  * @function 订单提交请求
  */
-data class SubmitOrderReq(val order: Order)
+data class SubmitOrderReq(val orderId: Int)
