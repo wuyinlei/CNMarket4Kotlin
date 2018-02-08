@@ -1,6 +1,7 @@
 package ruolan.com.ordercenter.service.impl
 
 import ruolan.com.baselibrary.data.model.BaseResp
+import ruolan.com.baselibrary.ext.convert
 import ruolan.com.baselibrary.ext.convertBoolean
 import ruolan.com.ordercenter.data.protocol.Order
 import ruolan.com.ordercenter.data.repository.OrderRepository
@@ -14,6 +15,10 @@ import javax.inject.Inject
  * @function
  */
 class OrderServiceImpl @Inject constructor() : OrderService {
+
+    override fun getOrderList(orderState: Int): Observable<MutableList<Order>> {
+        return repository.getOrderListByState(orderState).convert()
+    }
 
     override fun getOrderById(orderId: Int): Observable<BaseResp<Order>> {
         return repository.getOrderById(orderId)

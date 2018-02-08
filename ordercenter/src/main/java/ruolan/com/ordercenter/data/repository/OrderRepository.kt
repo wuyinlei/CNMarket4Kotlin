@@ -3,6 +3,7 @@ package ruolan.com.ordercenter.data.repository
 import ruolan.com.baselibrary.data.model.BaseResp
 import ruolan.com.baselibrary.data.net.RetrofitFactory
 import ruolan.com.ordercenter.data.api.OrderApi
+import ruolan.com.ordercenter.data.protocol.GetOrderListReq
 import ruolan.com.ordercenter.data.protocol.GetOrderReq
 import ruolan.com.ordercenter.data.protocol.Order
 import ruolan.com.ordercenter.data.protocol.SubmitOrderReq
@@ -28,10 +29,19 @@ class OrderRepository @Inject constructor() {
     /**
      * 获取订单
      */
-    fun getOrderById(orderId:Int):Observable<BaseResp<Order>>{
+    fun getOrderById(orderId: Int): Observable<BaseResp<Order>> {
         return RetrofitFactory.instance
                 .create(OrderApi::class.java)
                 .getOrderById(GetOrderReq(orderId))
+    }
+
+    /**
+     * 根据订单状态获取订单详情
+     */
+    fun getOrderListByState(orderState: Int): Observable<BaseResp<MutableList<Order>>> {
+        return RetrofitFactory.instance
+                .create(OrderApi::class.java)
+                .getOrderList(GetOrderListReq(orderState))
     }
 
 }

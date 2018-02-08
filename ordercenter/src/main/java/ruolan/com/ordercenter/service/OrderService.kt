@@ -23,4 +23,8 @@ interface OrderService {
     fun getOrderById(orderId: Int): Observable<BaseResp<Order>>
 
 
+    /**
+     * 获取订单列表
+     */
+    fun getOrderList(orderState:Int):Observable<MutableList<Order>>
 }

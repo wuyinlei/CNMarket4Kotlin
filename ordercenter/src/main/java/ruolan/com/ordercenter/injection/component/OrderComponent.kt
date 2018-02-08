@@ -5,6 +5,7 @@ import ruolan.com.baselibrary.injection.PerComponentScope
 import ruolan.com.baselibrary.injection.component.ActivityComponent
 import ruolan.com.ordercenter.injection.module.OrderModule
 import ruolan.com.ordercenter.ui.activity.OrderConfirmActivity
+import ruolan.com.ordercenter.ui.fragment.OrderFragment
 
 /**
  * Created by wuyinlei on 2018/1/21.
@@ -16,5 +17,7 @@ import ruolan.com.ordercenter.ui.activity.OrderConfirmActivity
 interface OrderComponent {
 
     fun inject(activity: OrderConfirmActivity)
+
+    fun inject(fragment: OrderFragment)
 
 }
