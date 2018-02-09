@@ -18,12 +18,12 @@ interface PayApi{
     /*
        获取支付宝支付签名
     */
-    @POST("pay/getPaySign")
+    @POST("kotlinserver/pay/getPaySign")
     fun getPaySign(@Body req: GetPaySignReq): Observable<BaseResp<String>>
 
     /*
         刷新订单状态，已支付
      */
-    @POST("order/pay")
+    @POST("kotlinserver/order/pay")
     fun payOrder(@Body req: PayOrderReq): Observable<BaseResp<String>>
 }
